@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}发布微博{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block main %}
+<h3 class="page-title" style="text-align:center">微博发布</h3>
+    <form action="" method="POST">
+        <div class="form-container" style="width:300px;margin:0 auto">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="文本内容" name="article">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">发表</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
