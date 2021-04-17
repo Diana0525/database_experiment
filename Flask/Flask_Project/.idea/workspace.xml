@@ -1,7 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b00f8b9-8864-464a-9e48-2c37b8ac1a14" name="Default Changelist" comment="" />
+    <list default="true" id="3b00f8b9-8864-464a-9e48-2c37b8ac1a14" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testFlaskMySQL/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testFlaskMySQL/static/images/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testFlaskMySQL/static/images/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testFlaskMySQL/static/images/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testFlaskMySQL/static/images/watermelon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/Flask.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Flask.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Flask_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Flask_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zlktqa.py" beforeDir="false" afterPath="$PROJECT_DIR$/zlktqa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/templates/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/regist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/abstracts.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/abstracts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/catch23.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/catch23.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/charsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/charsets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/connection_cext.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/connection_cext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/conversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/cursor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/cursor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/cursor_cext.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/cursor_cext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/custom_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/custom_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/dbapi.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/dbapi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/compiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/compiler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/creation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/introspection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/introspection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/operations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/errorcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/errorcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/eng/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/eng/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/eng/client_error.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/eng/client_error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/network.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/optionfiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/optionfiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/pooling.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/pooling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/protocol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/charsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/charsets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/dbdoc.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/dbdoc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/errorcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/errorcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/expr.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/expr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/locales/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/locales/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/locales/eng/client_error.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/locales/eng/client_error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_connection_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_connection_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_crud_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_crud_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_datatypes_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_datatypes_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expect_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expect_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expr_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expr_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_notice_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_notice_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_resultset_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_resultset_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_session_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_session_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_sql_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_sql_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protocol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/statement.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/venv/Lib/site-packages/mysqlx/statement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../untitled/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../untitled/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +94,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="36" column="20" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="36" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zlktqa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1995">
-              <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+            <state relative-caret-position="361">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding>
                 <element signature="e#17#89#0" expanded="true" />
               </folding>
@@ -23,37 +133,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/login.html">
+        <entry file="file://$PROJECT_DIR$/decorators.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/regist.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/manage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="32" lean-forward="true" selection-start-line="1" selection-start-column="32" selection-end-line="2" selection-end-column="48" />
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -61,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="418">
+              <caret line="22" column="59" lean-forward="true" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
               <folding>
                 <element signature="e#17#36#0" expanded="true" />
               </folding>
@@ -70,25 +153,38 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/exts.py" />
-        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/decorators.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/zlktqa.py" />
+        <option value="$PROJECT_DIR$/exts.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="323" />
-    <option name="y" value="557" />
-    <option name="width" value="1680" />
-    <option name="height" value="928" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-5" />
+    <option name="width" value="963" />
+    <option name="height" value="1047" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -110,19 +206,7 @@
             <path>
               <item name="Flask_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Flask_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-              <item name="versions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Flask_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Flask_Project" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Flask_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Flask_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Flask_Project" type="b2602c69:ProjectViewProjectNode" />
@@ -137,6 +221,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -281,20 +366,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-5" y="0" width="963" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2176" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16864865" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.18309858" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18291347" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.14129244" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -304,20 +390,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/decorators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="39" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/migrations/README">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -340,60 +412,115 @@
     <entry file="file://$PROJECT_DIR$/static/images/img2.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="2" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="29" column="67" lean-forward="true" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="89" selection-start-line="14" selection-start-column="89" selection-end-line="14" selection-end-column="89" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/regist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="96" lean-forward="true" selection-start-line="20" selection-start-column="96" selection-end-line="20" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#li#0;n#ul#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/flask_sqlalchemy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="732" column="8" selection-start-line="732" selection-start-column="8" selection-end-line="732" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="418">
+          <caret line="22" column="59" lean-forward="true" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
           <folding>
             <element signature="e#17#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
+    <entry file="file://$PROJECT_DIR$/exts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="32" lean-forward="true" selection-start-line="1" selection-start-column="32" selection-end-line="2" selection-end-column="48" />
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
+    <entry file="file://$PROJECT_DIR$/decorators.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/regist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zlktqa.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+        <state relative-caret-position="361">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
             <element signature="e#17#89#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="36" column="20" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="36" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

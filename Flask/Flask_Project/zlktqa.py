@@ -16,9 +16,9 @@ db.init_app(app)
 @app.route('/')
 def index():
     context={
-        'questions':Question.query.all()
+        'questions': Question.query.all()
     }
-    return render_template('index.html',**context)
+    return render_template('index.html', **context)
 
 # 登录函数
 @app.route('/login/',methods=['GET','POST'])

@@ -2,13 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4080e2-e094-48ab-b2d3-198934e0487f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../testFlaskMySQL/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/abstracts.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/abstracts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/catch23.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/catch23.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/charsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/charsets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/connection_cext.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/connection_cext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/conversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/cursor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/cursor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/cursor_cext.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/cursor_cext.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/custom_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/custom_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/dbapi.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/dbapi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/compiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/compiler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/creation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/introspection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/introspection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/operations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/django/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/errorcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/errorcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/eng/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/eng/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/eng/client_error.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/locales/eng/client_error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/network.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/optionfiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/optionfiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/pooling.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/pooling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/protocol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysql/connector/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/charsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/charsets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/dbdoc.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/dbdoc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/errorcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/errorcode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/expr.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/expr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/locales/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/locales/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/locales/eng/client_error.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/locales/eng/client_error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_connection_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_connection_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_crud_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_crud_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_datatypes_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_datatypes_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expect_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expect_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expr_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_expr_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_notice_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_notice_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_resultset_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_resultset_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_session_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_session_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_sql_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protobuf/mysqlx_sql_pb2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/protocol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/result.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/statement.py" beforeDir="false" afterPath="$PROJECT_DIR$/../testFlaskMySQL/venv/Lib/site-packages/mysqlx/statement.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mywb.py" beforeDir="false" afterPath="$PROJECT_DIR$/mywb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mywb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="323">
+              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
               <folding>
                 <element signature="e#0#72#0" expanded="true" />
               </folding>
@@ -87,11 +144,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="32767" />
-    <option name="y" value="32767" />
-    <option name="width" value="1940" />
-    <option name="height" value="1100" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-16" />
+    <option name="width" value="965" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -99,7 +155,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -121,6 +176,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -148,9 +204,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="D:\cnn\database_experiment\untitled\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mywb.py" />
@@ -182,21 +238,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="32767" y="32767" width="1940" height="1100" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09726603" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09747102" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3115942" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31127983" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32968238" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -236,8 +292,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mywb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="323">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
           <folding>
             <element signature="e#0#72#0" expanded="true" />
           </folding>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}首页{% endblock %}
+
+{% block main %}
+    <ul style="list-style:none;padding-left:0;">
+        {% for user in users %}
+            <li style="list-style:none;border-bottom:1px solid #eee;padding-top:10px;">
+                <div class="user-info" style="font-size:16px;color:#9b9b9b;line-height:40px;">
+                    <img src="{{ url_for('static',filename='images/watermelon.jpg') }}" alt="" class="avatar"
+                    style="width:40px;height:40px;border-radius:50%;">
+                    <span class="username" style="margin-left:10px;">{{ user[0] }}</span>
+                    <span class="create-time" style="float:right;">{{ user[1] }}</span>
+                </div>
+                <p class="answer-content" style="margin-left:50px;">{{ user[0] }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

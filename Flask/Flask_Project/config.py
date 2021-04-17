@@ -11,7 +11,7 @@ HOSTNAME='127.0.0.1'
 PORT='3306'
 DATABASE='company'
 USERNAME='root'
-PASSWORD='MySQL1234'
+PASSWORD='mysql'
 
 DB_URI='mysql+mysqlconnector://{}:{}@{}:{}/{}'.format(USERNAME,PASSWORD,HOSTNAME,PORT,DATABASE)
 
