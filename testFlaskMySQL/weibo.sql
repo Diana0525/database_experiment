@@ -12,12 +12,12 @@ table  if   exists   message_detail;
 /*==============================================================*/
 create table article
 (
-   article_ID           numeric(10,0) not null auto_increment,
-   message_ID           numeric(10,0) not null,
-   section_ID           numeric(10,0) not null,
-   t_article_ID         numeric(10,0),
+   article_ID           int not null auto_increment,
+   message_ID           int not null,
+   section_ID           int not null,
+   t_article_ID         int,
    article              text not null,
-   article_type         numeric(1,0) not null,
+   article_type         int not null,
    primary key (article_ID)
 );
 
@@ -26,8 +26,8 @@ create table article
 /*==============================================================*/
 create table comments
 (
-   comment_ID           numeric(10,0) not null auto_increment,
-   message_ID           numeric(10,0) not null,
+   comment_ID           int not null auto_increment,
+   message_ID           int not null,
    comment_text         text not null,
    primary key (comment_ID)
 );
@@ -37,9 +37,9 @@ create table comments
 /*==============================================================*/
 create table follow
 (
-   user_ID              numeric(10,0) not null,
-   use_user_ID          numeric(10,0) not null,
-   group_ID             numeric(10,0),
+   user_ID              int not null,
+   use_user_ID          int not null,
+   group_ID             int,
    primary key (user_ID, use_user_ID)
 );
 
@@ -48,8 +48,8 @@ create table follow
 /*==============================================================*/
 create table group_user
 (
-   group_ID             numeric(10,0) not null auto_increment,
-   user_ID              numeric(10,0) not null,
+   group_ID             int not null auto_increment,
+   user_ID              int not null,
    group_name           char(10) not null,
    primary key (group_ID)
 );
@@ -59,8 +59,8 @@ create table group_user
 /*==============================================================*/
 create table message1
 (
-   message_ID           numeric(10,0) not null auto_increment,
-   user_ID              numeric(10,0) not null,
+   message_ID           int not null auto_increment,
+   user_ID              int not null,
    message_time         datetime not null,
    valid                bool not null,
    primary key (message_ID)
@@ -79,8 +79,8 @@ create index time_index_key on message1
 /*==============================================================*/
 create table praise
 (
-   user_ID              numeric(10,0) not null,
-   message_ID           numeric(10,0) not null,
+   user_ID              int not null,
+   message_ID           int not null,
    praise_time          datetime,
    primary key (user_ID, message_ID)
 );
@@ -90,8 +90,8 @@ create table praise
 /*==============================================================*/
 create table reply
 (
-   reply_ID             numeric(10,0) not null auto_increment,
-   comment_ID           numeric(10,0) not null,
+   reply_ID             int not null auto_increment,
+   comment_ID           int not null,
    reply                text not null,
    reply_time           datetime not null,
    primary key (reply_ID)
@@ -102,7 +102,7 @@ create table reply
 /*==============================================================*/
 create table section
 (
-   section_ID           numeric(10,0) not null auto_increment,
+   section_ID           int not null auto_increment,
    section_name         char(20) not null,
    primary key (section_ID)
 );
@@ -112,14 +112,14 @@ create table section
 /*==============================================================*/
 create table user_detail
 (
-   detial_ID            numeric(10,0) not null auto_increment,
-   user_ID              numeric(10,0) not null,
-   sex                  bool,
+   detail_ID            int not null auto_increment,
+   user_ID              int not null,
+   sex                  char(5),
    education            char(10),
    job                  char(20),
    address              char(20),
    individual_resume    text,
-   phone                numeric(11,0),
+   phone                int,
    mailbox              char(30),
    primary key (detial_ID)
 );
@@ -129,7 +129,7 @@ create table user_detail
 /*==============================================================*/
 create table userinfo
 (
-   user_ID              numeric(10,0) not null auto_increment,
+   user_ID              int not null auto_increment,
    user_name            char(10) not null,
    user_psw             varchar(20) not null,
    user_state           bool not null,
@@ -141,9 +141,9 @@ create table userinfo
 /*==============================================================*/
 create table 艾特
 (
-   message_ID           numeric(10,0) not null,
-   user_ID              numeric(10,0) not null,
-   at_ID                numeric(10,0) not null,
+   message_ID           int not null,
+   user_ID              int not null,
+   at_ID                int not null,
    primary key (at_ID)
 );
 

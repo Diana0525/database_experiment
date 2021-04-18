@@ -5,15 +5,21 @@
 {% block head %}{% endblock %}
 
 {% block main %}
-<h3 class="page-title" style="text-align:center">微博发布</h3>
-    <form action="" method="POST">
-        <div class="form-container" style="width:300px;margin:0 auto">
+    <form action="" method="post">
+        <h3 class="page-title" style="text-align:center">发布微博</h3>
+        <div class="form-container" style="width:500px;margin:0 auto;text-align:right;">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="文本内容" name="article">
+                <textarea name="article" rows="6" class="form-control" placeholder="请输入内容"></textarea>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-block">发表</button>
+                <button class="btn btn-primary" style="">发表</button>
+            </div>
+            <div class="form-group">
+                {% for section in sections%}
+                    <input type="radio" name="section_name" value={{section[0]}}>{{ section[0] }}
+                {% endfor %}
             </div>
         </div>
     </form>
 {% endblock %}
+
