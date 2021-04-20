@@ -2,6 +2,7 @@
 
 {% block title %}首页{% endblock %}
 
+
 {% block main %}
     <ul style="list-style:none;padding-left:0;">
         <div>
@@ -16,7 +17,7 @@
             <li><a href="{{ url_for('home_choose',home_index='mywb') }}">{{user}}的微博</a></li>
             {% endif %}
         </ul>
-    </div>
+        </div>
         {% for message in messages %}
             <li style="border-bottom:1px solid #eee;overflow:hidden;padding:10px;">
             <div class="avatar-group" style="width:38px;height:100%;float:left;">
@@ -31,6 +32,53 @@
                 </div>
             </div>
         </li>
+         <div class="comment_list">
+        <h4 style="text-indent: 2em;">评论列表</h4>
+      <hr>
+          <div class="comment">
+             <div class="conmment_details">
+                <div style="float:left;">
+                  <span class="comment_name">大白 </span>     <span>22分钟前</span>
+                </div>
+                <div class="del">
+                  <span  class="show_reply_list">查看回复</span>
+                   <i class="icon layui-icon" >👍赞(164)</i>
+                  <a class="del_comment" data-id="1"> <i class="icon layui-icon" > 🚮删除</i></a>
+                </div>
+                 <div class="comment_content" >  啦啦啦啦啦啦
+                </div>
+            </div>
+           <div class="reply_list"  >   <!--style="display:none;"-->
+             <div class="reply" >
+                <span class="reply_name">小白</span>回复<span class="reply_name">小黑</span>：<span class="reply_content">嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻 </span>
+                <a  data-id="1" class="del_reply">
+                    <i class="icon layui-icon " >    🚮删除</i>
+                </a>
+             </div>
+             <div class="reply">
+                <span class="reply_name">小黑</span>回复<span class="reply_name">小白</span>：<span class="reply_content">哈哈哈哈哈哈哈哈哈 </span>
+                <a  data-id="1" class="del_reply">
+                    <i class="icon layui-icon" >    🚮删除</i>
+                </a>
+             </div>
+             <div class="reply">
+                <span class="reply_name">小白</span>回复<span class="reply_name">小黑</span>：<span class="reply_content">嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻 </span>
+               <a  data-id="1" class="del_reply">
+                    <i class="icon layui-icon" >    🚮删除</i>
+                </a>
+             </div>
+             <div class="reply">
+                <span class="reply_name">小黑</span>回复<span class="reply_name">小白</span>：<span class="reply_content">哈哈哈哈哈哈哈哈哈 </span>
+                <a  data-id="1" class="del_reply">
+                    <i class="icon layui-icon" >    🚮删除</i>
+                </a>
+             </div>
+
+          </div>
+              <div class="show_remain_reply">查看剩下的回复</div>
+       <!--回复列表结束-->
+          </div>
+        <hr>
         {% endfor %}
     </ul>
 {% endblock %}

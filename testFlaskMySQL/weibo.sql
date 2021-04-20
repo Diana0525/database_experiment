@@ -103,7 +103,7 @@ create table reply
 create table section
 (
    section_ID           int not null auto_increment,
-   section_name         char(20) not null,
+   section_name         char(20) not null unique,
    primary key (section_ID)
 );
 
@@ -113,7 +113,7 @@ create table section
 create table user_detail
 (
    detail_ID            int not null auto_increment,
-   user_ID              int not null,
+   user_ID              int not null unique,
    sex                  char(5),
    education            char(10),
    job                  char(20),

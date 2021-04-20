@@ -34,7 +34,7 @@ def show():
 @app.route('/index', methods=['GET'])  # 跳转至index.html，请求方式GET
 @login_required
 def index():
-    article_message = sel_user_article()
+    article_message = sel_all_article()
     username = session.get('username')
     section_name = read_sql(conn, 'select section_name from section')
     return render_template('index.html', user=username, messages=article_message, types=section_name)
@@ -44,29 +44,24 @@ def index():
 def home_choose(home_index):
     section_name = read_sql(conn, 'select section_name from section')
     if home_index == 'all':
-        print('all')
-        article_message = sel_user_article()
+        article_message = sel_all_article()
         username = session.get('username')
         return render_template('index.html', user=username, messages=article_message, types=section_name)
     elif home_index == 'follow': #后续改为关注人发的微博
-        print('follow')
         article_message = sel_user_article()
         username = session.get('username')
         return render_template('index.html', user=username, messages=article_message, types=section_name)
     elif home_index == 'follow_user':
-        print('follow_user')
         article_message = sel_user_article()
         username = session.get('username')
         return render_template('index.html', user=username, messages=article_message, types=section_name)
     elif home_index == 'mywb':
-        print('mywb')
         article_message = sel_user_article()
         username = session.get('username')
         return render_template('index.html', user=username, messages=article_message, types=section_name)
     else:
         for type in section_name:
             if home_index == type[0]:
-                print(type[0])
                 cursor.execute("select userinfo.user_name,article.article,message1.message_time "
                                 "from userinfo, article, section, message1 "
                                 "where section.section_name = %s " 
@@ -74,7 +69,6 @@ def home_choose(home_index):
                                 "and article.message_ID = message1.message_ID "
                                 "and message1.user_ID = userinfo.user_ID ",(type[0], ))
                 article_message = cursor.fetchall()
-                print(article_message)
                 username = session.get('username')
                 return render_template('index.html', user=username, messages=article_message, types=section_name)
 
@@ -99,7 +93,7 @@ def login():
                 pw = cursor.fetchall()  # 从test表中获取密码
                 if request.form['password'] == pw[0][0]:  # 如果页面输入的password匹配test表返回的密码
                     session['username'] = username  # 将目前登录的用户名加入session
-                    article_message = sel_user_article()
+                    article_message = sel_all_article()
                     section_name = read_sql(conn, 'select section_name from section')
                     return render_template('index.html', user=username, messages=article_message,
                                            types=section_name)
@@ -199,12 +193,10 @@ def user_detail_edit():
 @login_required
 def user_detail():
         user_id = get_user_id()
-        print(user_id[0][0])
         cursor.execute("select sex,education,job,address,individual_resume,phone,mailbox "
                        "from user_detail "
                        "where user_ID = %s ", (user_id[0][0],))
         messages = cursor.fetchall()
-        print(messages[0])
         return render_template('user_detail_show.html',
                                user=session.get('username'),
                                username=session.get('username'),
@@ -243,6 +235,29 @@ def sel_user_article():
     article_message = cursor.fetchall()
     return article_message
 
+# 获取所有用户发的文章
+def sel_all_article():
+    cursor.execute('select userinfo.user_name,article.article,message1.message_time '
+                   'from article,message1,userinfo '
+                   'where article.message_ID = message1.message_ID '
+                   'and message1.user_ID = userinfo.user_ID '
+                   )
+    article_message = cursor.fetchall()
+    return article_message
+
+# 用户经过搜索然后得到有关键字出现的文章
+@app.route('/search_article',methods=[ 'GET','POST'])
+def search_article():
+    search = request.form.get('search')
+    cursor.execute("select userinfo.user_name,message1.message_time,article.article "
+                    "from userinfo,article,message1 "
+                    "where article.article like %s "
+                    "and userinfo.user_ID = message1.user_ID "
+                    "and message1.message_ID = article.message_ID",('%'+search+'%', ))
+    article_message = cursor.fetchall()
+    username = session.get('username')
+    section_name = read_sql(conn, 'select section_name from section')
+    return render_template('index.html', user=username, messages=article_message, types=section_name)
 # 获取当前用户ID
 def get_user_id():
     username = session.get('username')
