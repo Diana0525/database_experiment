@@ -3,6 +3,7 @@ from flask import request
 from datetime import datetime
 import os
 import mysql.connector
+from decorators import login_required
 
 conn = mysql.connector.connect(user="root", password="mysql", database="weibo")  # 数据库连接
 cursor = conn.cursor()
@@ -31,10 +32,53 @@ def show():
 
 
 @app.route('/index', methods=['GET'])  # 跳转至index.html，请求方式GET
+@login_required
 def index():
     article_message = sel_user_article()
     username = session.get('username')
-    return render_template('index.html', user=username, messages=article_message)
+    section_name = read_sql(conn, 'select section_name from section')
+    return render_template('index.html', user=username, messages=article_message, types=section_name)
+
+@app.route('/home_choose/<home_index>')
+@login_required
+def home_choose(home_index):
+    section_name = read_sql(conn, 'select section_name from section')
+    if home_index == 'all':
+        print('all')
+        article_message = sel_user_article()
+        username = session.get('username')
+        return render_template('index.html', user=username, messages=article_message, types=section_name)
+    elif home_index == 'follow': #后续改为关注人发的微博
+        print('follow')
+        article_message = sel_user_article()
+        username = session.get('username')
+        return render_template('index.html', user=username, messages=article_message, types=section_name)
+    elif home_index == 'follow_user':
+        print('follow_user')
+        article_message = sel_user_article()
+        username = session.get('username')
+        return render_template('index.html', user=username, messages=article_message, types=section_name)
+    elif home_index == 'mywb':
+        print('mywb')
+        article_message = sel_user_article()
+        username = session.get('username')
+        return render_template('index.html', user=username, messages=article_message, types=section_name)
+    else:
+        for type in section_name:
+            if home_index == type[0]:
+                print(type[0])
+                cursor.execute("select userinfo.user_name,article.article,message1.message_time "
+                                "from userinfo, article, section, message1 "
+                                "where section.section_name = %s " 
+                                "and section.section_ID = article.section_ID "
+                                "and article.message_ID = message1.message_ID "
+                                "and message1.user_ID = userinfo.user_ID ",(type[0], ))
+                article_message = cursor.fetchall()
+                print(article_message)
+                username = session.get('username')
+                return render_template('index.html', user=username, messages=article_message, types=section_name)
+
+
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -46,9 +90,7 @@ def login():
         if (len(username) == 0 | len(password) == 0):
             return render_template('login.html', text='用户名或密码不能为空')
 
-        # cursor.execute('select username from userinfo')#查询test表查询用户名
         usernames = read_sql(conn, 'select user_name,user_ID from userinfo')
-
         for user in usernames:
             if request.form['username'] == user[0]:
                 cursor.execute('select user_psw '
@@ -58,7 +100,9 @@ def login():
                 if request.form['password'] == pw[0][0]:  # 如果页面输入的password匹配test表返回的密码
                     session['username'] = username  # 将目前登录的用户名加入session
                     article_message = sel_user_article()
-                    return render_template('index.html', user=username, messages=article_message)
+                    section_name = read_sql(conn, 'select section_name from section')
+                    return render_template('index.html', user=username, messages=article_message,
+                                           types=section_name)
                 return render_template('login.html', text='账号、密码错误！')
 
         # cursor.close()#关闭游标
@@ -94,6 +138,7 @@ def regist():
 
 
 @app.route('/release', methods=['POST', 'GET'])  # 发布微博
+@login_required
 def release():
     if request.method == 'GET':
         username = session.get('username')
@@ -117,7 +162,8 @@ def release():
                        "values (%d, %d, %d, '%s', %d) "
                        % (message_ID[0][0], section_ID[0][0], t_article_ID, article, article_type))
         conn.commit()
-        return '<h>发表成功！</h><form action="/index" method="get"><p><button type="submit">返回主页</button></p></form>'
+        return '<h>发表成功！</h><form action="/index" method="get"><p><button type="submit">' \
+               '返回主页</button></p></form>'
 
 # 注销函数
 @app.route('/logout/')
@@ -127,53 +173,48 @@ def logout():
 
 # 编辑用户详细信息
 @app.route('/user_detail_edit',methods=['POST', 'GET'])
+@login_required
 def user_detail_edit():
     if request.method=='GET':
         return render_template('user_detailinfo.html', user = session.get('username'))
     else:
         sex = request.form.get('sex')
-        print(sex)
         education = request.form.get('education')
-        print(education)
         job = request.form.get('job')
-        print(job)
         address = request.form.get('address')
-        print(address)
         individual_resume = request.form.get('individual_resume')
-        print(individual_resume)
         phone = request.form.get('phone')
-        print(phone)
         mailbox = request.form.get('mailbox')
-        print(mailbox)
         user_ID = get_user_id()
-        print(user_ID[0][0])
-        cursor.execute("insert into user_detail(user_ID, sex, education, job, address, individual_resume,"
+        cursor.execute("replace into user_detail(user_ID, sex, education, job, address, individual_resume,"
                        "phone, mailbox ) "
                        "values (%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s') "
                        % (user_ID[0][0], sex, education, job, address, individual_resume, phone
                           ,mailbox, ))
-        print(111)
         conn.commit()
         return '<h>保存成功！</h><form action="/user_detail" method="get"><p><button type="submit">' \
                '返回个人详细信息页面</button></p></form>'
 #展示用户详细信息
-@app.route('/user_detail',methods=[ 'GET'])
+@app.route('/user_detail',methods=[ 'GET','POST'])
+@login_required
 def user_detail():
-    user_ID = get_user_id()
-    cursor.execute("select sex,education,job,address,individual_resume,phone,mailbox"
-                   "from user_detail"
-                   "where user_ID = '%s'", ( user_ID, ))
-    messages = cursor.fetchall()
-    return render_template('user_detail_show.html',
-                           user = session.get('username'),
-                           username = session.get('username'),
-                           messagess = messages)
+        user_id = get_user_id()
+        print(user_id[0][0])
+        cursor.execute("select sex,education,job,address,individual_resume,phone,mailbox "
+                       "from user_detail "
+                       "where user_ID = %s ", (user_id[0][0],))
+        messages = cursor.fetchall()
+        print(messages[0])
+        return render_template('user_detail_show.html',
+                               user=session.get('username'),
+                               username=session.get('username'),
+                               messages=messages)
 # 向section表插入板块名称
 def insert_section(message):
     cursor.execute("insert into section(section_name) "
                    "values ('%s') "
                    "ON DUPLICATE KEY UPDATE section_name='%s' "
-                   % (message, message, ))
+                   % (message, message))
     conn.commit()
     return
 

@@ -7,20 +7,17 @@
         {% for message in messages %}
             <li style="border-bottom:1px solid #fff;overflow:hidden;padding:10px 0;">
             <div class="info-group" style="float:left;width:660px;margin-left:10px;">
-                <div class="user-info" style="text-align:right;">
-                    <span class="sex" style="margin-left:20px;">{{ message[0] }}</span>
-                    <span class="education">{{ message[1] }}</span>
-                    <span class="job">{{ message[2] }}</span>
-                    <span class="address">{{ message[3] }}</span>
-                    <span class="individual_resume">{{ message[4] }}</span>
-                    <span class="phone">{{ message[5] }}</span>
-                    <span class="mailbox">{{ message[6] }}</span>
+                <div class="question-content" style="text-align:center;">
+                    <p class="question-content" style="margin-left:20px;">性别：{{ message[0] }}</p>
+                    <p class="question-content">教育程度：{{ message[1] }}</p>
+                    <p class="question-content">工作：{{ message[2] }}</p>
+                    <p class="question-content">地址：{{ message[3] }}</p>
+                    <p class="question-content">个人简介：{{ message[4] }}</p>
+                    <p class="question-content">电话号码：{{ message[5] }}</p>
+                    <p class="question-content">邮箱：{{ message[6] }}</p>
                 </div>
             </div>
         </li>
         {% endfor %}
-        <div class="form-group">
-            <button class="btn btn-primary btn-block">添加修改</button>
-        </div>
     </ul>
 {% endblock %}

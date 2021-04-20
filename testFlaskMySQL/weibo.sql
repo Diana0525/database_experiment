@@ -119,9 +119,9 @@ create table user_detail
    job                  char(20),
    address              char(20),
    individual_resume    text,
-   phone                int,
+   phone                char(11),
    mailbox              char(30),
-   primary key (detial_ID)
+   primary key (detail_ID)
 );
 
 /*==============================================================*/
