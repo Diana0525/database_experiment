@@ -19,21 +19,41 @@
         </ul>
         </div>
         {% for message in messages %}
-            <li style="border-bottom:1px solid #eee;overflow:hidden;padding:10px;">
+        <li style="border-bottom:1px solid #eee;overflow:hidden;padding:10px;">
             <div class="avatar-group" style="width:38px;height:100%;float:left;">
                 <img src="{{ url_for('static',filename='images/watermelon.jpg') }}" alt="" class="avatar"
                 style="width:38px;height:38px;border-radius:50%;">
             </div>
             <div class="question-group" style="float:left;width:660px;margin-left:10px;">
-                <p class="question-content">{{ message[0] }}</p>
+                <a href="{{url_for('user_detail',user_name = message[0] )}}">
+                    <p class="question-content">{{ message[0] }}</p>
+                </a>
+
+                <span class="question-author" style="margin-left:20px;">{{ message[1] }}</span>
                 <div class="question-info" style="text-align:right;">
-                    <span class="question-author" style="margin-right:20px;">{{ message[1] }}</span>
                     <span class="question-time">{{ message[2] }}</span>
                 </div>
             </div>
         </li>
+        <div align="center">
+        <ul class="nav nav-tabs" id="commentTab" aria-orientation="horizontal">
+            <div>
+                {% if user%}
+                <button class="btn btn-default" style="width:280px">
+                    <a href="{{ url_for('weibo_op',op_index='transmit',message_ID=message[3]) }}">转发</a>
+                </button>
+                <button class="btn btn-default" style="width:280px">
+                    <a href="{{ url_for('weibo_op',op_index='comment',message_ID=message[3])}}">评论</a>
+                </button>
+                <button class="btn btn-default" style="width:280px">
+                    <a href="{{ url_for('weibo_op',op_index='praise',message_ID=message[3])}}">点赞</a>
+                </button>
+                {% endif %}
+            </div>
+        </ul>
+        </div>
          <div class="comment_list">
-        <h4 style="text-indent: 2em;">评论列表</h4>
+        <h5 style="text-indent: 2em;font-weight: 700;">评论列表</h5>
       <hr>
           <div class="comment">
              <div class="conmment_details">
@@ -52,25 +72,25 @@
              <div class="reply" >
                 <span class="reply_name">小白</span>回复<span class="reply_name">小黑</span>：<span class="reply_content">嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻 </span>
                 <a  data-id="1" class="del_reply">
-                    <i class="icon layui-icon " >    🚮删除</i>
+                    <i class="icon layui-icon " >    🚮删除</i>
                 </a>
              </div>
              <div class="reply">
                 <span class="reply_name">小黑</span>回复<span class="reply_name">小白</span>：<span class="reply_content">哈哈哈哈哈哈哈哈哈 </span>
                 <a  data-id="1" class="del_reply">
-                    <i class="icon layui-icon" >    🚮删除</i>
+                    <i class="icon layui-icon" >    🚮删除</i>
                 </a>
              </div>
              <div class="reply">
                 <span class="reply_name">小白</span>回复<span class="reply_name">小黑</span>：<span class="reply_content">嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻 </span>
                <a  data-id="1" class="del_reply">
-                    <i class="icon layui-icon" >    🚮删除</i>
+                    <i class="icon layui-icon" >    🚮删除</i>
                 </a>
              </div>
              <div class="reply">
                 <span class="reply_name">小黑</span>回复<span class="reply_name">小白</span>：<span class="reply_content">哈哈哈哈哈哈哈哈哈 </span>
                 <a  data-id="1" class="del_reply">
-                    <i class="icon layui-icon" >    🚮删除</i>
+                    <i class="icon layui-icon" >    🚮删除</i>
                 </a>
              </div>
 

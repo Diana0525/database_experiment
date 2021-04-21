@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}发表评论{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('comment_release',message_ID=message_ID) }}" method="post">
+        <h3 class="page-title" style="text-align:center">发表评论</h3>
+        <div class="form-container" style="width:500px;margin:0 auto;text-align:right;">
+            <div class="form-group">
+                <textarea name="comments" rows="6" class="form-control" placeholder="请输入内容"></textarea>
+            </div>
+            <div>
+                <button class="btn btn-default" style="">发表</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

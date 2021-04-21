@@ -15,7 +15,7 @@
         }
         .comment_list {
         background-color: #ffffff;
-        padding-top:5px;
+        padding-top:0px;
         width:900px;
         margin:0 auto;
           }
@@ -132,7 +132,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
           {% if user %}
-            <li><a href="{{ url_for('user_detail') }}">{{ user }}</a></li>
+            <li><a href="{{ url_for('user_detail',user_name = user) }}">{{ user }}</a></li>
             <li><a href="{{ url_for('user_detail_edit') }}">修改信息</a></li>
             <li><a href="{{ url_for('logout') }}">退出登录</a></li>
           {% else %}

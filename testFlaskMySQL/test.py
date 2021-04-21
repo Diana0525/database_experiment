@@ -25,11 +25,8 @@ def read_sql(conn, sentence):
 
 @app.route('/', methods=['GET'])  # 跳转至login.html，请求方式GET
 def show():
-    message = [['亲爱的用户:',
-               str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
-               '欢迎来到旧浪微博']]
-    return render_template('index.html', messages=message)
-
+    article_message = sel_all_article()
+    return render_template('index.html', messages=article_message)
 
 @app.route('/index', methods=['GET'])  # 跳转至index.html，请求方式GET
 @login_required
@@ -72,7 +69,30 @@ def home_choose(home_index):
                 username = session.get('username')
                 return render_template('index.html', user=username, messages=article_message, types=section_name)
 
+@app.route('/weibo_op/<op_index>/<message_ID>')
+@login_required
+def weibo_op(op_index, message_ID):
+    username = session.get('username')
+    if op_index == 'comment':
+        return render_template('comment.html',user=username,message_ID = message_ID)
 
+@app.route('/comment_release/<message_ID>',methods=['POST','GET'])  # 发布微博
+@login_required
+def comment_release(message_ID):
+    comments = request.form.get('comments')
+    print(comments)
+    user_id = get_user_id()
+    message_time = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))  # 当前时间
+    cursor.execute("insert into message1(user_ID, message_time, valid) "
+                   "values (%d, '%s', '%s')"
+                   % (user_id[0][0], message_time, '1'))
+    conn.commit()
+    cursor.execute("insert into comments(message_ID, comment_text) "
+                   "values (%s, '%s') "
+                   % (message_ID, comments))
+    conn.commit()
+    return '<h>发表成功！</h><form action="/index" method="get"><p><button type="submit">' \
+           '返回主页</button></p></form>'
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -98,10 +118,8 @@ def login():
                     return render_template('index.html', user=username, messages=article_message,
                                            types=section_name)
                 return render_template('login.html', text='账号、密码错误！')
-
         # cursor.close()#关闭游标
         # conn.close()#关闭连接
-
 
 @app.route('/regist', methods=['POST', 'GET'])  # 表单提交
 def regist():
@@ -129,7 +147,6 @@ def regist():
 
         # cursor.close()#关闭游标
         # conn.close()#关闭连接
-
 
 @app.route('/release', methods=['POST', 'GET'])  # 发布微博
 @login_required
@@ -186,13 +203,18 @@ def user_detail_edit():
                        % (user_ID[0][0], sex, education, job, address, individual_resume, phone
                           ,mailbox, ))
         conn.commit()
-        return '<h>保存成功！</h><form action="/user_detail" method="get"><p><button type="submit">' \
-               '返回个人详细信息页面</button></p></form>'
+        return "<h>保存成功！</h><form action='user_detail' " \
+               "method='get'><p><button type='submit'>" \
+               "返回个人详细信息页面</button></p></form>"
 #展示用户详细信息
-@app.route('/user_detail',methods=[ 'GET','POST'])
+@app.route('/user_detail/<user_name>',methods=[ 'GET','POST'])
 @login_required
-def user_detail():
-        user_id = get_user_id()
+def user_detail(user_name):
+        cursor.execute("select user_ID "
+                       "from userinfo "
+                       "where user_name = %s ", (user_name,))
+        user_id = cursor.fetchall()
+        # user_id = get_user_id()
         cursor.execute("select sex,education,job,address,individual_resume,phone,mailbox "
                        "from user_detail "
                        "where user_ID = %s ", (user_id[0][0],))
@@ -201,6 +223,7 @@ def user_detail():
                                user=session.get('username'),
                                username=session.get('username'),
                                messages=messages)
+
 # 向section表插入板块名称
 def insert_section(message):
     cursor.execute("insert into section(section_name) "
@@ -227,20 +250,22 @@ def sel_user_article():
                    'from userinfo '
                    'where user_name = %s', (username,))
     user_id = cursor.fetchall()
-    cursor.execute('select userinfo.user_name,article.article,message1.message_time '
+    cursor.execute('select userinfo.user_name,article.article,message1.message_time,message1.message_ID '
                    'from article,message1,userinfo '
                    'where article.message_ID = message1.message_ID '
                    'and message1.user_ID = userinfo.user_ID '
-                   'and userinfo.user_ID = %s ', (user_id[0][0],))
+                   'and userinfo.user_ID = %s '
+                   'order by message1.message_time  desc ', (user_id[0][0],))
     article_message = cursor.fetchall()
     return article_message
 
 # 获取所有用户发的文章
 def sel_all_article():
-    cursor.execute('select userinfo.user_name,article.article,message1.message_time '
+    cursor.execute('select userinfo.user_name,article.article,message1.message_time,message1.message_ID '
                    'from article,message1,userinfo '
                    'where article.message_ID = message1.message_ID '
                    'and message1.user_ID = userinfo.user_ID '
+                   'order by message1.message_time  desc '
                    )
     article_message = cursor.fetchall()
     return article_message
@@ -249,11 +274,12 @@ def sel_all_article():
 @app.route('/search_article',methods=[ 'GET','POST'])
 def search_article():
     search = request.form.get('search')
-    cursor.execute("select userinfo.user_name,message1.message_time,article.article "
+    cursor.execute("select userinfo.user_name,message1.message_time,article.article,message1.message_ID "
                     "from userinfo,article,message1 "
                     "where article.article like %s "
                     "and userinfo.user_ID = message1.user_ID "
-                    "and message1.message_ID = article.message_ID",('%'+search+'%', ))
+                    "and message1.message_ID = article.message_ID"
+                   "order by message1.message_time  desc ",('%'+search+'%', ))
     article_message = cursor.fetchall()
     username = session.get('username')
     section_name = read_sql(conn, 'select section_name from section')

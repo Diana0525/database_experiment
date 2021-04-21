@@ -130,7 +130,7 @@ create table user_detail
 create table userinfo
 (
    user_ID              int not null auto_increment,
-   user_name            char(10) not null,
+   user_name            char(10) not null unique,
    user_psw             varchar(20) not null,
    user_state           bool not null,
    primary key (user_ID)
