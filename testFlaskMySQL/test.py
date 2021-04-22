@@ -36,6 +36,40 @@ def index():
     section_name = read_sql(conn, 'select section_name from section')
     return render_template('index.html', user=username, messages=article_message, types=section_name)
 
+# 针对文章的Message_ID，寻找相关的评论
+def find_comment(message_ID):
+    cursor.execute("select message1.message_ID,userinfo.user_name,comments.comment_text,message1.message_time "
+                   "from userinfo,comments,message1 "
+                   "where comments.c_message_ID = %s "
+                   "and userinfo.user_ID = message1.user_ID "
+                   "and message1.message_ID = comments.message_ID ",(message_ID, ))
+    comments = cursor.fetchall()
+    return comments
+
+# 针对文章的message_ID,寻找点赞数
+def message_praise_num(message_ID):
+    cursor.execute("select count(*) as count "
+                   "from praise "
+                   "where message_ID = %s "
+                   "group by message_ID having count>0 ",(message_ID, ))
+    praise_num = cursor.fetchall()
+    return praise_num
+
+# 判断是否点下了关注按钮
+def follow_or_not():
+    print('follow')
+
+@app.route('/weibo_detail/<message_ID>')
+@login_required
+def weibo_detail(message_ID):
+    article_message = sel_ID_article(message_ID)
+    username = session.get('username')
+    section_name = read_sql(conn, 'select section_name from section')
+    comment_list = find_comment(message_ID)
+    praise_num = message_praise_num(message_ID)
+    return render_template('weibo_detail.html', user=username, message=article_message[0], types=section_name,
+                           comments = comment_list, praise_num=praise_num[0][0])
+
 @app.route('/home_choose/<home_index>')
 @login_required
 def home_choose(home_index):
@@ -48,7 +82,7 @@ def home_choose(home_index):
         article_message = sel_user_article()
         username = session.get('username')
         return render_template('index.html', user=username, messages=article_message, types=section_name)
-    elif home_index == 'follow_user':
+    elif home_index == 'follow_user': # 显示关注的人
         article_message = sel_user_article()
         username = session.get('username')
         return render_template('index.html', user=username, messages=article_message, types=section_name)
@@ -64,7 +98,8 @@ def home_choose(home_index):
                                 "where section.section_name = %s " 
                                 "and section.section_ID = article.section_ID "
                                 "and article.message_ID = message1.message_ID "
-                                "and message1.user_ID = userinfo.user_ID ",(type[0], ))
+                                "and message1.user_ID = userinfo.user_ID "
+                               "order by message1.message_time  desc ",(type[0], ))
                 article_message = cursor.fetchall()
                 username = session.get('username')
                 return render_template('index.html', user=username, messages=article_message, types=section_name)
@@ -75,24 +110,32 @@ def weibo_op(op_index, message_ID):
     username = session.get('username')
     if op_index == 'comment':
         return render_template('comment.html',user=username,message_ID = message_ID)
+    elif op_index == 'praise':
+        user_id = get_user_id()
+        praise_time = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))  # 当前时间
+        cursor.execute("replace into praise(user_ID, message_ID, praise_time)"
+                       "values (%d, '%s', '%s') "
+                       % (user_id[0][0], message_ID, praise_time))
+        conn.commit()
+        return redirect(url_for('index'))
 
-@app.route('/comment_release/<message_ID>',methods=['POST','GET'])  # 发布微博
+@app.route('/comment_release/<message_ID>',methods=['POST','GET'])  # 发布评论
 @login_required
 def comment_release(message_ID):
     comments = request.form.get('comments')
-    print(comments)
     user_id = get_user_id()
     message_time = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))  # 当前时间
     cursor.execute("insert into message1(user_ID, message_time, valid) "
                    "values (%d, '%s', '%s')"
                    % (user_id[0][0], message_time, '1'))
     conn.commit()
-    cursor.execute("insert into comments(message_ID, comment_text) "
-                   "values (%s, '%s') "
-                   % (message_ID, comments))
+    c_message_ID = message_ID
+    message_ID = read_sql(conn, 'select @@identity')  # 找到最新插入表的信息的Message_id
+    cursor.execute("insert into comments(message_ID, comment_text,c_message_ID) "
+                   "values (%s, '%s', '%s') "
+                   % (message_ID[0][0], comments, c_message_ID))
     conn.commit()
-    return '<h>发表成功！</h><form action="/index" method="get"><p><button type="submit">' \
-           '返回主页</button></p></form>'
+    return redirect(url_for('index'))
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -140,8 +183,7 @@ def regist():
                            "values ('%s', '%s', '%s')"
                            % (user, pw1, '1'))  # 把注册信息加入test表
             conn.commit()
-            return '<h>注册成功！请登录。</h><form action="/login" method="get"><p><button type="submit">' \
-                   '返回登录</button></p></form>'
+            return redirect(url_for('login'))
         else:
             return render_template('regist.html', text='两次输入的密码不匹配,请重新输入')
 
@@ -173,8 +215,7 @@ def release():
                        "values (%d, %d, %d, '%s', %d) "
                        % (message_ID[0][0], section_ID[0][0], t_article_ID, article, article_type))
         conn.commit()
-        return '<h>发表成功！</h><form action="/index" method="get"><p><button type="submit">' \
-               '返回主页</button></p></form>'
+        return redirect(url_for('index'))
 
 # 注销函数
 @app.route('/logout/')
@@ -203,9 +244,12 @@ def user_detail_edit():
                        % (user_ID[0][0], sex, education, job, address, individual_resume, phone
                           ,mailbox, ))
         conn.commit()
-        return "<h>保存成功！</h><form action='user_detail' " \
-               "method='get'><p><button type='submit'>" \
-               "返回个人详细信息页面</button></p></form>"
+        cursor.execute("select user_name "
+                       "from userinfo "
+                       "where user_ID = %s ", (user_ID[0][0],))
+        user_name = cursor.fetchall()
+        return redirect(url_for('user_detail',user_name = user_name[0][0]))
+
 #展示用户详细信息
 @app.route('/user_detail/<user_name>',methods=[ 'GET','POST'])
 @login_required
@@ -270,6 +314,17 @@ def sel_all_article():
     article_message = cursor.fetchall()
     return article_message
 
+# 获取某message_ID的文章
+def sel_ID_article(message_ID):
+    cursor.execute('select userinfo.user_name,article.article,message1.message_time,message1.message_ID '
+                   'from article,message1,userinfo '
+                   'where message1.message_ID = %s '
+                   'and article.message_ID = message1.message_ID '
+                   'and message1.user_ID = userinfo.user_ID '
+                   'order by message1.message_time  desc ',(message_ID, ))
+    article_message = cursor.fetchall()
+    return article_message
+
 # 用户经过搜索然后得到有关键字出现的文章
 @app.route('/search_article',methods=[ 'GET','POST'])
 def search_article():
@@ -284,6 +339,7 @@ def search_article():
     username = session.get('username')
     section_name = read_sql(conn, 'select section_name from section')
     return render_template('index.html', user=username, messages=article_message, types=section_name)
+
 # 获取当前用户ID
 def get_user_id():
     username = session.get('username')
@@ -292,6 +348,7 @@ def get_user_id():
                    'where user_name = %s', (username,))
     user_id = cursor.fetchall()
     return user_id
+
 if __name__ == '__main__':
     section_ini()
     app.run()

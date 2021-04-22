@@ -29,6 +29,7 @@ create table comments
    comment_ID           int not null auto_increment,
    message_ID           int not null,
    comment_text         text not null,
+   c_message_ID         int not null,
    primary key (comment_ID)
 );
 
@@ -79,7 +80,7 @@ create index time_index_key on message1
 /*==============================================================*/
 create table praise
 (
-   user_ID              int not null,
+   user_ID              int not null ,
    message_ID           int not null,
    praise_time          datetime,
    primary key (user_ID, message_ID)

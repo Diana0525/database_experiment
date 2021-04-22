@@ -85,8 +85,16 @@
          margin:0 auto;
          line-height: 40px;
          display:none;
+     }
     </style>
-
+    <script type="text/javascript">
+        function change()
+        {
+            var btn = document.getElementById("btn+14");
+            btn.value="已关注";
+            btn.disabled=false;
+        }
+    </script>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}-旧浪微博</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->

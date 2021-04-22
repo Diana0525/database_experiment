@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}微博详情页{% endblock %}
+
+
+{% block main %}
+    <ul style="list-style:none;padding-left:0;">
+        <div>
+        <ul class="nav nav-tabs" id="indexTab" aria-orientation="horizontal">
+            <li><a href= "{{ url_for('home_choose',home_index='all') }}">微博广场</a></li>
+            {% for type in types %}
+                <li><a href="{{ url_for('home_choose',home_index=type[0]) }}">{{ type[0] }}</a> </li>
+            {% endfor %}
+            {% if user %}
+            <li><a href="{{ url_for('home_choose',home_index='follow') }}">关注</a> </li>
+            <li><a href="{{ url_for('home_choose',home_index='follow_user') }}">关注用户</a> </li>
+            <li><a href="{{ url_for('home_choose',home_index='mywb') }}">{{user}}的微博</a></li>
+            {% endif %}
+        </ul>
+        </div>
+        <li style="border-bottom:1px solid #eee;overflow:hidden;padding:10px;">
+            <div class="avatar-group" style="width:38px;height:100%;float:left;">
+                <img src="{{ url_for('static',filename='images/watermelon.jpg') }}" alt="" class="avatar"
+                style="width:38px;height:38px;border-radius:50%;">
+            </div>
+            <div class="question-group" style="float:left;width:660px;margin-left:10px;">
+                <a href="{{url_for('user_detail',user_name = message[0] )}}">
+                    <p class="question-content">{{ message[0] }}</p>
+                </a>
+                <span class="question-author" style="margin-left:20px;">{{ message[1] }}</span>
+                <div class="question-info" style="text-align:right;">
+                    <span class="question-time">{{ message[2] }}</span>
+                </div>
+            </div>
+        </li>
+        <div align="center">
+        <ul class="nav nav-tabs" id="commentTab" aria-orientation="horizontal">
+            <div>
+                {% if user%}
+                <button class="btn btn-default" style="width:280px">
+                    <a href="{{ url_for('weibo_op',op_index='transmit',message_ID=message[3]) }}">转发</a>
+                </button>
+                <button class="btn btn-default" style="width:280px">
+                    <a href="{{ url_for('weibo_op',op_index='comment',message_ID=message[3])}}">评论</a>
+                </button>
+                <button class="btn btn-default" style="width:280px">
+                    <a href="{{ url_for('weibo_op',op_index='praise',message_ID=message[3])}}">点赞 ({{ praise_num }})</a>
+                </button>
+                {% endif %}
+            </div>
+        </ul>
+        </div>
+         <div class="comment_list">
+        <h5 style="text-indent: 2em;font-weight: 700;">评论列表</h5>
+             {% for comment in comments %}
+      <hr>
+          <div class="comment">
+             <div class="conmment_details">
+                <div style="float:left;">
+                  <span class="comment_name">{{ comment[1] }}</span>     <span>{{ comment[3] }}</span>
+                </div>
+                <div class="del">
+                  <span  class="show_reply_list">查看回复</span>
+                   <i class="icon layui-icon" >👍赞(164)</i>
+                  <a class="del_comment" data-id="1"> <i class="icon layui-icon" > 🚮删除</i></a>
+                </div>
+                 <div class="comment_content" >  {{ comment[2] }}
+                </div>
+            </div>
+           <!--<div class="reply_list"  >   &lt;!&ndash;style="display:none;"&ndash;&gt;-->
+             <!--<div class="reply" >-->
+                <!--<span class="reply_name">小白</span>回复<span class="reply_name">小黑</span>：<span class="reply_content">我也可畅游异国 </span>-->
+                <!--<a  data-id="1" class="del_reply">-->
+                    <!--<i class="icon layui-icon " >    🚮删除</i>-->
+                <!--</a>-->
+             <!--</div>-->
+             <!--<div class="reply">-->
+                <!--<span class="reply_name">小黑</span>回复<span class="reply_name">小白</span>：<span class="reply_content">放心吃喝 </span>-->
+                <!--<a  data-id="1" class="del_reply">-->
+                    <!--<i class="icon layui-icon" >    🚮删除</i>-->
+                <!--</a>-->
+             <!--</div>-->
+             <!--<div class="reply">-->
+                <!--<span class="reply_name">小白</span>回复<span class="reply_name">小黑</span>：<span class="reply_content">我也可畅游异国 </span>-->
+               <!--<a  data-id="1" class="del_reply">-->
+                    <!--<i class="icon layui-icon" >    🚮删除</i>-->
+                <!--</a>-->
+             <!--</div>-->
+             <!--<div class="reply">-->
+                <!--<span class="reply_name">小黑</span>回复<span class="reply_name">小白</span>：<span class="reply_content">再找寄托 </span>-->
+                <!--<a  data-id="1" class="del_reply">-->
+                    <!--<i class="icon layui-icon" >    🚮删除</i>-->
+                <!--</a>-->
+             <!--</div>-->
+
+          <!--</div>-->
+              <!--<div class="show_remain_reply">查看剩下的回复</div>-->
+       <!--&lt;!&ndash;回复列表结束&ndash;&gt;-->
+          </div>
+        <hr>
+             {% endfor %}
+         </div>
+    </ul>
+{% endblock %}
