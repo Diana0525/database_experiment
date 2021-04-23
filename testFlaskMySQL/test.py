@@ -56,7 +56,8 @@ def message_praise_num(message_ID):
     return praise_num
 
 # 判断是否点下了关注按钮
-def follow_or_not():
+@app.route('/follow')
+def follow():
     print('follow')
 
 @app.route('/weibo_detail/<message_ID>')
@@ -67,6 +68,8 @@ def weibo_detail(message_ID):
     section_name = read_sql(conn, 'select section_name from section')
     comment_list = find_comment(message_ID)
     praise_num = message_praise_num(message_ID)
+    if praise_num == []:
+        praise_num = [(0,)]
     return render_template('weibo_detail.html', user=username, message=article_message[0], types=section_name,
                            comments = comment_list, praise_num=praise_num[0][0])
 

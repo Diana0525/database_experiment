@@ -27,6 +27,11 @@
                 <a href="{{url_for('user_detail',user_name = message[0] )}}">
                     <p class="question-content">{{ message[0] }}</p>
                 </a>
+                <form>
+                    <a href=# id=test>
+                        <button name="follow"  class="btn btn-default">关注</button>
+                    </a>
+                </form>
                 <span class="question-author" style="margin-left:20px;">{{ message[1] }}</span>
                 <div class="question-info" style="text-align:right;">
                     <span class="question-time">{{ message[2] }}</span>

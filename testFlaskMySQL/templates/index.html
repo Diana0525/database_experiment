@@ -28,7 +28,7 @@
             <a href="{{url_for('user_detail',user_name = message[0] )}}">
                 <p class="question-content">{{ message[0] }}</p>
             </a>
-            <input type="button"  id="btn" value="关注" onclick="change();follow_or_not()" name = "follow"/>
+
             <a href="{{url_for('weibo_detail',message_ID = message[3] )}}">
                 <span class="question-author" style="margin-left:20px;">{{ message[1] }}</span>
             </a>

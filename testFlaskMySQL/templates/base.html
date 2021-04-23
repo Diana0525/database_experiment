@@ -87,13 +87,27 @@
          display:none;
      }
     </style>
-    <script type="text/javascript">
+    <script>
         function change()
         {
-            var btn = document.getElementById("btn+14");
+            var btn = document.getElementById("btn");
             btn.value="已关注";
-            btn.disabled=false;
+            btn.disabled=true;
+            alert('关注成功');
         }
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+            $(function() {
+              $('a#test').bind('click', function() {
+                $.getJSON('/follow',
+                    function(data) {
+                    alert('关注成功');
+                  //do nothing
+                });
+                return false;
+              });
+            });
     </script>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}-旧浪微博</title>
