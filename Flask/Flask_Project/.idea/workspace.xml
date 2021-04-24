@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b00f8b9-8864-464a-9e48-2c37b8ac1a14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/group_choose.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/templates/group_choose.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/group_choose.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/templates/weibo_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/templates/weibo_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../testFlaskMySQL/weibo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../testFlaskMySQL/weibo.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +19,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zlktqa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
+            <state relative-caret-position="-1199">
               <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#17#89#0" expanded="true" />
@@ -98,7 +95,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-5" />
     <option name="width" value="963" />
     <option name="height" value="1047" />
@@ -285,8 +282,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.04004215" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -404,7 +400,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zlktqa.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
+        <state relative-caret-position="-1199">
           <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#17#89#0" expanded="true" />

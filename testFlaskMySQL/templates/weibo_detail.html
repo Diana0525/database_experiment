@@ -29,11 +29,23 @@
                 </a>
                 {% if not_follow%}
                 <button class="btn btn-default">
-                    <a href="{{ url_for('group_choose',message_ID = message[3]) }}">关注</a>
+                    <a href="{{ url_for('weibo_detail',message_ID = message[3],flag = 'press') }}">关注</a>
                 </button>
                 {% endif %}
                 {% if follow%}
                     <button class="btn btn-default" >已关注</button>
+                {% endif %}
+                {% if group_choose%}
+                    <form action="{{ url_for('weibo_detail',message_ID=message[3],flag='choose')}}" method="post">
+                        <div class="form-group">
+                        {% for group in groups%}
+                            <input type="radio" name="group_name" value={{group[0]}}>{{ group[0] }}
+                        {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default" >返回</button>
+                        </div>
+                    </form>
                 {% endif %}
                 <span class="question-author" style="margin-left:20px;">{{ message[1] }}</span>
                 <div class="question-info" style="text-align:right;">
@@ -67,11 +79,11 @@
                 <div style="float:left;">
                   <span class="comment_name">{{ comment[1] }}</span>     <span>{{ comment[3] }}</span>
                 </div>
-                <div class="del">
-                  <span  class="show_reply_list">查看回复</span>
-                   <i class="icon layui-icon" >👍赞(164)</i>
-                  <a class="del_comment" data-id="1"> <i class="icon layui-icon" > 🚮删除</i></a>
-                </div>
+                <!--<div class="del">-->
+                  <!--<span  class="show_reply_list">查看回复</span>-->
+                   <!--<i class="icon layui-icon" >👍赞(164)</i>-->
+                  <!--<a class="del_comment" data-id="1"> <i class="icon layui-icon" > 🚮删除</i></a>-->
+                <!--</div>-->
                  <div class="comment_content" >  {{ comment[2] }}
                 </div>
             </div>

@@ -9,7 +9,7 @@
         <ul class="nav nav-tabs" id="indexTab" aria-orientation="horizontal">
             <li><a href= "{{ url_for('home_choose',home_index='all') }}">微博广场</a></li>
             {% for type in types %}
-                <li><a href="{{ url_for('home_choose',home_index=type[0]) }}">{{ type[0] }}</a> </li>
+                <li><a href="{{ url_for('home_choose',home_index=type[0])}}">{{ type[0] }}</a> </li>
             {% endfor %}
             {% if user%}
             <li><a href="{{ url_for('home_choose',home_index='follow') }}">关注</a> </li>
@@ -23,13 +23,13 @@
         <h4>{{user}} 的 关 注 分 组 ：</h4>
         <ul type="disc" >
         {% for group in groups %}
-        <li><a href="">{{ group[0] }}</a></li>
+        <li><a href="{{ url_for('follow_user',group= group[0] ) }}">{{ group[0] }}</a></li>
         {% endfor %}
         </ul>
         </div>
-        <form action="{{ url_for('home_choose',home_index='follow_user') }}" method="post">
+        <form action="{{ url_for('home_choose',home_index='follow_user')}}" method="post">
         <div class="form-group">
-            <input type="text" class="" placeholder="请输入新的分组" name="new_group" class="form-control">
+            <input type="text"  placeholder="请输入新的分组" name="new_group" class="form-control">
         </div>
         <div class="form-group">
             <button class="btn btn-default">确认</button>
@@ -47,7 +47,7 @@
                 <p class="question-content">{{ message[0] }}</p>
             </a>
 
-            <a href="{{url_for('weibo_detail',message_ID = message[3],follow= 0 )}}">
+            <a href="{{url_for('weibo_detail',message_ID = message[3],flag = 0 )}}">
                 <span class="question-author" style="margin-left:20px;">{{ message[1] }}</span>
             </a>
             <div class="question-info" style="text-align:right;">

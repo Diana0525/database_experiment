@@ -54,9 +54,9 @@ def message_praise_num(message_ID):
     praise_num = cursor.fetchall()
     return praise_num
 
-@app.route('/weibo_detail/<message_ID>/<follow>')
+@app.route('/weibo_detail/<message_ID>/<flag>',methods = ['POST','GET'])
 @login_required
-def weibo_detail(message_ID, follow):
+def weibo_detail(message_ID,flag):
     article_message = sel_ID_article(message_ID)
     username = session.get('username')
     section_name = read_sql(conn, 'select section_name from section')
@@ -67,10 +67,6 @@ def weibo_detail(message_ID, follow):
     use_user_name = article_message[0][0]  # 文章发布者，被关注人的name
     use_user_ID = sel_id_from_name(use_user_name) #被关注人的ID
     user_ID = get_user_id()  # 关注者ID，即当前用户
-    cursor.execute("select group_name "
-                   "from group_user "
-                   "where user_ID = %s ", (user_ID[0][0],))
-    groups = cursor.fetchall()
 
     # 判断用户和博主是否是同一个人
     if user_ID == use_user_ID:
@@ -82,13 +78,39 @@ def weibo_detail(message_ID, follow):
                    "where user_ID = %s "
                    "and use_user_ID = %s ",(user_ID[0][0], use_user_ID[0][0]))
     group_ID = cursor.fetchall()
-
     if group_ID != []: #已关注
         return render_template('weibo_detail.html', user=username, message=article_message[0], types=section_name,
                                comments=comment_list, praise_num=praise_num[0][0], follow=1)
+    if flag == 'press': #用户未关注博主，且按下了关注按钮
+        print(flag)
+        cursor.execute("select group_name "
+                       "from group_user "
+                       "where user_ID = %s ", (user_ID[0][0],))
+        groups = cursor.fetchall() # 获取当前用户已经建立好的分组
+        return render_template('weibo_detail.html', user=username, message=article_message[0], types=section_name,
+                               comments=comment_list, praise_num=praise_num[0][0], not_follow=1,
+                               group_choose = 1, groups = groups)
+    elif flag == 'choose': #已经选中某项分组
+        print(flag)
+        group_name = request.form.get('group_name')
+        print(group_name)
+        # 根据分组名找到分组ID
+        cursor.execute("select group_ID "
+                       "from group_user "
+                       "where group_name = %s ",(group_name,))
+        group_ID = cursor.fetchall()
+        print(group_ID)
+        # 插入到follow关注表中
+        print(user_ID)
+        print(use_user_ID)
+        print(group_ID)
+        cursor.execute("insert into follow(user_ID, use_user_ID, group_ID) "
+                       "values ('%s', '%s', '%s') "
+                       % (user_ID[0][0],use_user_ID[0][0], group_ID[0][0]))
+        conn.commit()
+        return redirect(url_for('weibo_detail',message_ID = message_ID, flag = 0))
 
-    if follow == 'true':  # 用户点击了关注按钮
-        print('true')
+    # 用户没点击关注按钮
     return render_template('weibo_detail.html', user=username, message=article_message[0], types=section_name,
                            comments=comment_list, praise_num=praise_num[0][0], not_follow=1)
 
@@ -112,7 +134,7 @@ def home_choose(home_index):
         cursor.execute("select group_name "
                        "from group_user "
                        "where user_ID = %s ",(user_id[0][0],))
-        groups = cursor.fetchall()
+        groups = cursor.fetchall() # 获取当前用户建立的所有分组名
         new_group = request.form.get('new_group')
         if new_group != None:
             user_id = get_user_id()
@@ -140,29 +162,27 @@ def home_choose(home_index):
                 username = session.get('username')
                 return render_template('index.html', user=username, messages=article_message, types=section_name)
 
-@app.route('/group_choose/<message_ID>',methods=['POST','GET'])
+@app.route('/follow_user/<group>')
 @login_required
-def group_choose(message_ID):
-    article_message = sel_ID_article(message_ID)
+def follow_user(group):
+    print(group)
+    user_ID = get_user_id()
+    # 获取当前用户在当前分组中关注的人
+    cursor.execute("select u2.user_name "
+                   "from userinfo u1, "
+                   "userinfo u2, "
+                   "follow, "
+                   "group_user "
+                   "where u1.user_ID = %s "
+                   "and group_user.group_name = %s "
+                   "and u2.user_ID = follow.use_user_ID "
+                   "and group_user.group_ID = follow.group_ID ",(user_ID[0][0],group,))
+    user_names = cursor.fetchall()
+    print(user_names)
     username = session.get('username')
     section_name = read_sql(conn, 'select section_name from section')
-    comment_list = find_comment(message_ID)
-    praise_num = message_praise_num(message_ID)
-    group_name = request.form.get('group_name')
-    print(group_name)
-    use_user_name = article_message[0][0]  # 文章发布者，被关注人的name
-    use_user_ID = sel_id_from_name(use_user_name)  # 被关注人的ID
-    user_ID = get_user_id()  # 关注者ID，即当前用户
-    cursor.execute("select group_ID "
-                   "from group_user "
-                   "where group_name = %s ", (group_name))
-    group_ID = cursor.fetchall()
-    cursor.execute("insert into follow(user_ID, use_user_ID, group_ID) "
-                   "values ('%s', '%s', '%s') "
-                   % (user_ID[0][0], use_user_ID[0][0], group_ID[0][0]))
-    conn.commit()
-    return render_template('weibo_detail.html', user=username, message=article_message[0], types=section_name,
-                           comments=comment_list, praise_num=praise_num[0][0], follow=1)
+    return render_template('follow_user.html',user=username,types=section_name,follow_group=1,group=group,
+                           user_names=user_names)
 
 @app.route('/weibo_op/<op_index>/<message_ID>')
 @login_required
