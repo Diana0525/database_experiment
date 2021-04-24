@@ -52,7 +52,7 @@ create table group_user
    group_ID             int not null auto_increment,
    user_ID              int not null,
    group_name           char(10) not null,
-   primary key (group_ID)
+   primary key (group_ID,user_ID,group_name)
 );
 
 /*==============================================================*/

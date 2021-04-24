@@ -17,7 +17,25 @@
             <li><a href="{{ url_for('home_choose',home_index='mywb') }}">{{user}}的微博</a></li>
             {% endif %}
         </ul>
+        </div >
+        {% if follow_group%}
+        <div>
+        <h4>{{user}} 的 关 注 分 组 ：</h4>
+        <ul type="disc" >
+        {% for group in groups %}
+        <li><a href="">{{ group[0] }}</a></li>
+        {% endfor %}
+        </ul>
         </div>
+        <form action="{{ url_for('home_choose',home_index='follow_user') }}" method="post">
+        <div class="form-group">
+            <input type="text" class="" placeholder="请输入新的分组" name="new_group" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default">确认</button>
+        </div>
+        </form>
+        {% endif %}
         {% for message in messages %}
         <li style="border-bottom:1px solid #eee;overflow:hidden;padding:10px;">
         <div class="avatar-group" style="width:38px;height:100%;float:left;">
@@ -29,7 +47,7 @@
                 <p class="question-content">{{ message[0] }}</p>
             </a>
 
-            <a href="{{url_for('weibo_detail',message_ID = message[3] )}}">
+            <a href="{{url_for('weibo_detail',message_ID = message[3],follow= 0 )}}">
                 <span class="question-author" style="margin-left:20px;">{{ message[1] }}</span>
             </a>
             <div class="question-info" style="text-align:right;">
