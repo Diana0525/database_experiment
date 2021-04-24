@@ -142,7 +142,7 @@ def home_choose(home_index):
                            "values (%d, '%s') "
                            % (user_id[0][0], new_group))
             conn.commit()
-        return render_template('index.html', user=username, messages=article_message, types=section_name,follow_group =1,
+        return render_template('index.html', user=username, types=section_name,follow_group =1,
                                groups = groups)
     elif home_index == 'mywb':
         article_message = sel_user_article()
