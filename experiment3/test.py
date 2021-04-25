@@ -91,19 +91,15 @@ def weibo_detail(message_ID,flag):
                                comments=comment_list, praise_num=praise_num[0][0], not_follow=1,
                                group_choose = 1, groups = groups)
     elif flag == 'choose': #已经选中某项分组
-        print(flag)
         group_name = request.form.get('group_name')
-        print(group_name)
+        user_ID = get_user_id()
         # 根据分组名找到分组ID
         cursor.execute("select group_ID "
                        "from group_user "
-                       "where group_name = %s ",(group_name,))
+                       "where group_name = %s "
+                       "and user_ID = %s ",(group_name,user_ID[0][0]))
         group_ID = cursor.fetchall()
-        print(group_ID)
         # 插入到follow关注表中
-        print(user_ID)
-        print(use_user_ID)
-        print(group_ID)
         cursor.execute("insert into follow(user_ID, use_user_ID, group_ID) "
                        "values ('%s', '%s', '%s') "
                        % (user_ID[0][0],use_user_ID[0][0], group_ID[0][0]))
@@ -128,7 +124,6 @@ def home_choose(home_index):
         username = session.get('username')
         return render_template('index.html', user=username, messages=article_message, types=section_name)
     elif home_index == 'follow_user': # 显示关注的人和关注分组
-        article_message = sel_user_article()
         username = session.get('username')
         user_id = get_user_id()
         cursor.execute("select group_name "
@@ -168,14 +163,13 @@ def follow_user(group):
     print(group)
     user_ID = get_user_id()
     # 获取当前用户在当前分组中关注的人
-    cursor.execute("select u2.user_name "
-                   "from userinfo u1, "
-                   "userinfo u2, "
+    cursor.execute("select userinfo.user_name  "
+                   "from userinfo, "
                    "follow, "
                    "group_user "
-                   "where u1.user_ID = %s "
+                   "where follow.user_ID = %s "
                    "and group_user.group_name = %s "
-                   "and u2.user_ID = follow.use_user_ID "
+                   "and userinfo.user_ID = follow.use_user_ID "
                    "and group_user.group_ID = follow.group_ID ",(user_ID[0][0],group,))
     user_names = cursor.fetchall()
     print(user_names)
@@ -409,7 +403,6 @@ def sel_ID_article(message_ID):
 @app.route('/search_article',methods=[ 'GET','POST'])
 def search_article():
     search = request.form.get('search')
-    print(search)
     cursor.execute("select userinfo.user_name,article.article,message1.message_time,message1.message_ID "
                     "from userinfo,article,message1 "
                     "where article.article like %s "
