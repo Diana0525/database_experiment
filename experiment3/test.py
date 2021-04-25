@@ -409,11 +409,12 @@ def sel_ID_article(message_ID):
 @app.route('/search_article',methods=[ 'GET','POST'])
 def search_article():
     search = request.form.get('search')
-    cursor.execute("select userinfo.user_name,message1.message_time,article.article,message1.message_ID "
+    print(search)
+    cursor.execute("select userinfo.user_name,article.article,message1.message_time,message1.message_ID "
                     "from userinfo,article,message1 "
                     "where article.article like %s "
                     "and userinfo.user_ID = message1.user_ID "
-                    "and message1.message_ID = article.message_ID"
+                    "and message1.message_ID = article.message_ID "
                    "order by message1.message_time  desc ",('%'+search+'%', ))
     article_message = cursor.fetchall()
     username = session.get('username')
