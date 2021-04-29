@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
+#include "main.h"
 int menu_select()
 {
     char s;
@@ -22,12 +20,14 @@ int menu_select()
 
 int read_choice()
 {
+    int i = 0;
     for(;;)
     {
         switch(menu_select())
         {
             case 1:
                 printf("1.基于线性搜索的关系选择\n");
+                i=linear_search(i);
                 break;
             case 2:
                 printf("2.两阶段多路归并排序\n");
@@ -49,7 +49,6 @@ int read_choice()
                 break;
             default:
                 break;
-
         }
     }
     return 0;
@@ -57,6 +56,6 @@ int read_choice()
 }
 int main()
 {
-    read_choice();
+    read_choice();//获取用户的选择
     return 0;
 }
