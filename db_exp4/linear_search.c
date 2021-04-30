@@ -119,8 +119,14 @@ void write_block(unsigned char *blk, char str_X[], char str_Y[])
 {
     int i;
     for (i = 0; i < 4; i++)
+    {
         *(blk + i) = str_X[i];
+    }
     for (i = 4; i < 8; i++)
+    {
         *(blk + i) = str_Y[i-4];
+    }
+
+    printf("\n");
 }
 

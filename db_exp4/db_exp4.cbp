@@ -50,10 +50,10 @@
 		</Unit>
 		<Unit filename="tpmms.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debug" />
 		</Unit>
 		<Unit filename="tpmms.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="Debug" />
 		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />

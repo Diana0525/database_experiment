@@ -31,6 +31,7 @@ int read_choice()
                 break;
             case 2:
                 printf("2.两阶段多路归并排序\n");
+                cn = tpmms();
                 break;
             case 3:
                 printf("3.基于索引的关系选择\n");
