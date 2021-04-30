@@ -84,6 +84,7 @@ int linear_search()
                     }
                     freeBlockInBuffer(blk_write, &buf);
                     blk_write = getNewBlockInBuffer(&buf);
+                    memset(blk_write, 0, buf.blkSize*sizeof(unsigned char));
 
                 }
             }
@@ -111,6 +112,7 @@ int linear_search()
 
     printf("IO次数为 %d\n", buf.numIO);// 输出IO的次数
     printf("\n");
+    return 0;
 }
 /* 写入数据块的每一行8个字节，运行一次写一行，即8个字节 */
 void write_block(unsigned char *blk, char str_X[], char str_Y[])
