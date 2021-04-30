@@ -43,3 +43,26 @@
 	<stdio.h>
 	"extmem.h"
 
+1619760927 source:d:\cnn\exp4\database_experiment\db_exp4\extmem.c
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1619760927 d:\cnn\exp4\database_experiment\db_exp4\extmem.h
+
+1619769614 source:d:\cnn\exp4\database_experiment\db_exp4\main.c
+	"main.h"
+
+1619760927 d:\cnn\exp4\database_experiment\db_exp4\main.h
+	<stdio.h>
+	<stdlib.h>
+	"linear_search.h"
+
+1619769666 d:\cnn\exp4\database_experiment\db_exp4\linear_search.h
+	<stdlib.h>
+	<stdio.h>
+	"extmem.h"
+
+1619769749 source:d:\cnn\exp4\database_experiment\db_exp4\linear_search.c
+	"linear_search.h"
+

@@ -20,14 +20,14 @@ int menu_select()
 
 int read_choice()
 {
-    int i = 0;
+    int cn = 0;
+    char s;
     for(;;)
     {
         switch(menu_select())
         {
             case 1:
-                printf("1.基于线性搜索的关系选择\n");
-                i=linear_search(i);
+                cn=linear_search();
                 break;
             case 2:
                 printf("2.两阶段多路归并排序\n");

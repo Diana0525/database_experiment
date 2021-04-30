@@ -3,6 +3,5 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "extmem.h"
-int linear_search(int SC_num);
-
+int linear_search();
 #endif // LINEAR_SEARCH_H_INCLUDED
