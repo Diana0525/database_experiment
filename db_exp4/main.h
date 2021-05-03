@@ -3,6 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "linear_search.h"
-
+#include "tpmms.h"
 
 #endif // MAIN_H_INCLUDED

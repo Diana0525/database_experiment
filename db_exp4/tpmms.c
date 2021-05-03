@@ -2,49 +2,69 @@
 #define BLOCKSIZE 64
 int tpmms()
 {
-    Buffer buf;// ¶¨ÒåÒ»¸ö»º³åÇø£¬520×Ö½Ú£¬¿É´æ·Å8¿é´ÅÅÌ¿é
-    unsigned char *blk; // Ò»¸öÖ¸Ïò´ÅÅÌ¿éµÄÖ¸Õë
-    int i = 0, j = 0;
-    /* »ñÈ¡¿éÖĞÊı¾İĞèÒªµÄ±äÁ¿ */
-    int X = -1;
-    int Y = -1;
-    int count = 0;// ¼ÆÊıÆ÷£¬¼ÇÂ¼ÒÑÓĞ¶àÉÙÊı×ÖÅÅÁĞÕûÆë
-
-    char str[5];
-    int min_X = 100;// ¼ÇÂ¼Ò»´ÎÑ­»·ÖĞÕÒµ½µÄ×îĞ¡Öµ,³õÊ¼»¯Îª±ÈÖµÓò×î´óÖµ»¹´óµÄÖµ
-    char min_X_str[5];
-    int min_Y;// ¼ÇÂ¼YÖµ
-    char min_Y_str[5];
-    char str_X[5];
-    char str_Y[5];
-    int blk_num;// ¼ÇÂ¼×îĞ¡ÖµÔÚµÚ¼¸¿é
-    int tuple_num; // ¼ÇÂ¼ÔÚ¿éÖĞµÄµÚ¼¸ĞĞÔª×é
-    /* ¶¨ÒåÒ»¸öbuffer */
+    Buffer buf;// å®šä¹‰ä¸€ä¸ªç¼“å†²åŒºï¼Œ520å­—èŠ‚ï¼Œå¯å­˜æ”¾8å—ç£ç›˜å—
+    unsigned char *blk;
+    /* å®šä¹‰ä¸€ä¸ªbuffer */
     if (!initBuffer(520, 64, &buf))
     {
         perror("Buffer Initialization Failed!\n");
         return -1;
     }
-    /* ¶ÁÈ¡´ÅÅÌ¿éµ½bufferÖĞ */
-    /* ÀûÓÃcount¼ÇÂ¼µÄÒÑ¾­ÅÅºÃĞòµÄÔª×éÖµ£¬¾ÍÄÜÌø¹ıÒÑ¾­ÅÅĞòµÄ²¿·Ö£¬ÔÚÆäËû²¿·ÖÉ¸Ñ¡×îĞ¡Öµ */
-    /* Ñ­»·°Ë´Î½«bufÌîÂú */
-    for (i = 1; i <= 8; i++)
+    /* å¤–å±‚å¾ªç¯ä¸€æ¬¡è¡¨ç¤ºè¿›è¡Œäº†ä¸€æ¬¡å†…å­˜æ’åº */
+    /* å¾ªç¯ç»“æŸåï¼Œåˆ™ç»“æŸäº†ç¬¬ä¸€è½®æ’åº */
+    for (int i = 1; i <= 41; i+=8)
     {
-        if ((blk = readBlockFromDisk(i, &buf)) == NULL)
+        /* è¯»å–ç£ç›˜å—åˆ°bufferä¸­ */
+        /* åˆ©ç”¨countè®°å½•çš„å·²ç»æ’å¥½åºçš„å…ƒç»„å€¼ï¼Œå°±èƒ½è·³è¿‡å·²ç»æ’åºçš„éƒ¨åˆ†ï¼Œåœ¨å…¶ä»–éƒ¨åˆ†ç­›é€‰æœ€å°å€¼ */
+        /* å¾ªç¯å…«æ¬¡å°†bufå¡«æ»¡ */
+        for (int j= i; j <= i+7; j++)
         {
-            perror("Reading Block Failed!\n");
+            if ((blk = readBlockFromDisk(j, &buf)) == NULL)
+            {
+                perror("Reading Block Failed!\n");
+                return -1;
+            }
+        }
+        blk = blk-(BLOCKSIZE+1)*7;// è®©blké‡æ–°æŒ‡å‘ç¬¬ä¸€ä¸ªæ•°æ®å—çš„å¼€å¤´
+        if (tpmms_one(i, &buf, blk) != 0)
+        {
+            perror("tpmms_one wrong!");
             return -1;
         }
     }
-    blk = blk-(BLOCKSIZE+1)*7;// ÈÃblkÖØĞÂÖ¸ÏòµÚÒ»¸öÊı¾İ¿éµÄ¿ªÍ·
-    /* Ã¿Ò»´ÎµÄÑ­»·£¬¿ÉÒÔÕÒµ½Ò»¸ö×îĞ¡Öµ£¬Èç½ñÑ­»·7*8´Î */
+    /* ç¬¬äºŒè½®æ’åºå¼€å§‹ */
+    /* å…ˆæ’åºR */
+    tpmms_R(&buf);
+    printf("IOæ¬¡æ•°ä¸º %lu\n", buf.numIO);// è¾“å‡ºIOçš„æ¬¡æ•°
+    return 0;
+}
+
+int tpmms_one(int beginFileName, Buffer *buf, unsigned char *blk)
+{
+    int i = 0, j = 0;
+    /* è·å–å—ä¸­æ•°æ®éœ€è¦çš„å˜é‡ */
+    int X = -1;
+    int Y = -1;
+    int count = 0;// è®¡æ•°å™¨ï¼Œè®°å½•å·²æœ‰å¤šå°‘æ•°å­—æ’åˆ—æ•´é½
+
+    char str[5];
+    int min_X = 100;// è®°å½•ä¸€æ¬¡å¾ªç¯ä¸­æ‰¾åˆ°çš„æœ€å°å€¼,åˆå§‹åŒ–ä¸ºæ¯”å€¼åŸŸæœ€å¤§å€¼è¿˜å¤§çš„å€¼
+    char min_X_str[5];
+    int min_Y;// è®°å½•Yå€¼
+    char min_Y_str[5];
+    char str_X[5];
+    char str_Y[5];
+    int blk_num;// è®°å½•æœ€å°å€¼åœ¨ç¬¬å‡ å—
+    int tuple_num; // è®°å½•åœ¨å—ä¸­çš„ç¬¬å‡ è¡Œå…ƒç»„
+    
+    /* æ¯ä¸€æ¬¡çš„å¾ªç¯ï¼Œå¯ä»¥æ‰¾åˆ°ä¸€ä¸ªæœ€å°å€¼ï¼Œå¦‚ä»Šå¾ªç¯7*8æ¬¡ */
     for (int a = 0; a < 56; a++)
     {
-        min_X = 100;// Ã¿´ÎÑ­»·ÖØÖÃ¿ªÊ¼µÄ×îĞ¡ÖµÎª´óÖµ
-        for (i = count/7; i < 8; i++) // Ñ­»·¶Á8¿é
+        min_X = 100;// æ¯æ¬¡å¾ªç¯é‡ç½®å¼€å§‹çš„æœ€å°å€¼ä¸ºå¤§å€¼
+        for (i = count/7; i < 8; i++) // å¾ªç¯è¯»8å—
         {
-            /* iÎªcount/7Ê±£¬j²ÅÊÇcount%7,·ñÔò´Ó0¿ªÊ¼ */
-            for (j = (i == count/7)? count%7 : 0; j < 7; j++)// Ã¿Ò»¸öÊı¾İ¿éµÄÇ°7ĞĞ´æ·Å×Å7¸öÔª×é
+            /* iä¸ºcount/7æ—¶ï¼Œjæ‰æ˜¯count%7,å¦åˆ™ä»0å¼€å§‹ */
+            for (j = (i == count/7)? count%7 : 0; j < 7; j++)// æ¯ä¸€ä¸ªæ•°æ®å—çš„å‰7è¡Œå­˜æ”¾ç€7ä¸ªå…ƒç»„
             {
                 for (int k = 0; k < 4; k++)
                 {
@@ -56,7 +76,7 @@ int tpmms()
                     min_X = X;
                     for (int k = 0; k < 5; k++)
                     {
-                        min_X_str[k] = str[k];// ±£´æ×Ö·û´®
+                        min_X_str[k] = str[k];// ä¿å­˜å­—ç¬¦ä¸²
                     }
                     for (int k = 0; k < 4; k++)
                     {
@@ -67,22 +87,22 @@ int tpmms()
                     {
                         min_Y_str[k] = str[k];
                     }
-                    blk_num = i+1;// ¼ÇÂ¼ÕÒµ½µÄ×îĞ¡ÖµÔÚµÚ¼¸¿é
-                    tuple_num = j+1;// ¼ÇÂ¼ÔÚµÚ¼¸ĞĞ
+                    blk_num = i+1;// è®°å½•æ‰¾åˆ°çš„æœ€å°å€¼åœ¨ç¬¬å‡ å—
+                    tuple_num = j+1;// è®°å½•åœ¨ç¬¬å‡ è¡Œ
                 }
             }
         }
-        count++; // Ò»´ÎÑ­»·ÄÜÕÒµ½Ò»¸ö×îĞ¡Öµ
-        printf("µÚ%d¸ö×îĞ¡Öµ£º£¨%d, %d£©\n",count, min_X, min_Y);
-        printf("×îĞ¡Öµ³öÏÖÔÚµÚ%d¿éµÄµÚ%dĞĞ\n",blk_num, tuple_num);
-        /* ÕÒ³öµÄµÚnĞ¡µÄÔª×é£¬ÓëÆäÓ¦¸ÃÔÚµÄË³Î»Î»ÖÃÉÏµÄÊıÖµ½»»» */
-        /* ÀıÈçµÚÒ»Ğ¡µÄÔª×é£¬Ó¦¸ÃÓëµÚÒ»¿éµÚÒ»ĞĞµÄÊıÖµ½»»» */
-        /* blk¶Á³ö¸Ã×îĞ¡ÖµÓ¦¸ÃÔÚµÄÎ»ÖÃ,count=1Ê±£¬Ôò¶Á³öµÚ1¿é */
-        /* ÕÒ³öµÚ(count/7)+1¿éµÚcount%7ĞĞµÄÔª×é */
-        /* Ä¿Ç°µÄblkÖ¸ÏòµÄÊÇ×îºóÒ»¸öÊı¾İ¿éµÄ¿ªÍ·£¬µÚÒ»¸ö¿éÊı¾İ¿éµÄ¿ªÍ·Îª:blk-(BLOCKSIZE+1)*7 */
+        count++; // ä¸€æ¬¡å¾ªç¯èƒ½æ‰¾åˆ°ä¸€ä¸ªæœ€å°å€¼
+        printf("ç¬¬%dä¸ªæœ€å°å€¼ï¼šï¼ˆ%d, %dï¼‰\n",count, min_X, min_Y);
+        printf("æœ€å°å€¼å‡ºç°åœ¨ç¬¬%då—çš„ç¬¬%dè¡Œ\n",blk_num, tuple_num);
+        /* æ‰¾å‡ºçš„ç¬¬nå°çš„å…ƒç»„ï¼Œä¸å…¶åº”è¯¥åœ¨çš„é¡ºä½ä½ç½®ä¸Šçš„æ•°å€¼äº¤æ¢ */
+        /* ä¾‹å¦‚ç¬¬ä¸€å°çš„å…ƒç»„ï¼Œåº”è¯¥ä¸ç¬¬ä¸€å—ç¬¬ä¸€è¡Œçš„æ•°å€¼äº¤æ¢ */
+        /* blkè¯»å‡ºè¯¥æœ€å°å€¼åº”è¯¥åœ¨çš„ä½ç½®,count=1æ—¶ï¼Œåˆ™è¯»å‡ºç¬¬1å— */
+        /* æ‰¾å‡ºç¬¬(count/7)+1å—ç¬¬count%7è¡Œçš„å…ƒç»„ */
+        /* ç›®å‰çš„blkæŒ‡å‘çš„æ˜¯æœ€åä¸€ä¸ªæ•°æ®å—çš„å¼€å¤´ï¼Œç¬¬ä¸€ä¸ªå—æ•°æ®å—çš„å¼€å¤´ä¸º:blk-(BLOCKSIZE+1)*7 */
         for (int k = 0; k < 4; k++)
         {
-            str_X[k] = *(blk + (count-1)/7*(BLOCKSIZE+1) + (count-1)%7*8 + k);//Ò»¸öÊı¾İ¿é´æ·Å7×éÓĞÓÃµÄÊı¾İ£¬ËùÒÔ¶Ô7È¡Óà
+            str_X[k] = *(blk + (count-1)/7*(BLOCKSIZE+1) + (count-1)%7*8 + k);//ä¸€ä¸ªæ•°æ®å—å­˜æ”¾7ç»„æœ‰ç”¨çš„æ•°æ®ï¼Œæ‰€ä»¥å¯¹7å–ä½™
         }
         X = atoi(str_X);
         for (int k = 0; k < 4; k++)
@@ -90,8 +110,8 @@ int tpmms()
             str_Y[k] = *(blk + (count-1)/7*(BLOCKSIZE+1) + (count-1)%7*8 + k + 4);
         }
         Y = atoi(str_Y);
-        /* Á½×éÔª×é½øĞĞ½»»» */
-        printf("µÚ%d¿éµÚ%dĞĞ(%d, %d)\n", count/7+1, count%7, X, Y);
+        /* ä¸¤ç»„å…ƒç»„è¿›è¡Œäº¤æ¢ */
+        printf("ç¬¬%då—ç¬¬%dè¡Œ(%d, %d)\n", count/7+1, count%7, X, Y);
         printf("blk_one:%c%c \n",*(blk+(count-1)/7*(BLOCKSIZE+1)+(count-1)%7*8),
                *(blk+(count-1)/7*(BLOCKSIZE+1)+(count-1)%7*8+1));
         printf("blk_two:%c%c\n",*(blk+(blk_num-1)*(BLOCKSIZE+1)+(tuple_num-1)*8),
@@ -102,27 +122,61 @@ int tpmms()
         printf("swap finished\n");
 
     }
-    /* Ñ­»·Îª8¿éblkÄ©Î²¼ÓÉÏµØÖ·ĞÅÏ¢£¬´Ë´ÎµÄ±£´æÔÚ111.blk~118.blk */
-    for (int k = 0; k <8; k++)
+    /* å¾ªç¯ä¸º8å—blkæœ«å°¾åŠ ä¸Šåœ°å€ä¿¡æ¯*/
+    for (int k = 0; k < 8; k++)
     {
-        writeAddrinBlk(blk + k*(BLOCKSIZE+1), 111 + k + 1);
-        if (writeBlockToDisk(blk+k*(BLOCKSIZE+1), 111+k, &buf) != 0)
-        {
+        writeAddrinBlk(blk + k*(BLOCKSIZE+1), 110+k+1+beginFileName);
+        if (writeBlockToDisk(blk+k*(BLOCKSIZE+1), 110+k+beginFileName, buf) != 0)
+        {       
             perror("Writing Block Failed!\n");
             return -1;
         }
     }
+    
     return 0;
 }
-/* ÎªÃ¿¸ö¿éµÄ×îºóÒ»ĞĞĞ´ÈëÏÂÒ»¿éµÄµØÖ· */
-/* ÊäÈë¿éµÄÊ×µØÖ· */
+/* ä¸ºæ¯ä¸ªå—çš„æœ€åä¸€è¡Œå†™å…¥ä¸‹ä¸€å—çš„åœ°å€ */
+/* è¾“å…¥å—çš„é¦–åœ°å€ */
 int writeAddrinBlk(unsigned char *blk, int addr)
 {
     char str[5];
-    // +48´æ´¢ÎªASCIIÂë
+    char str_Y[5];
+    // +48å­˜å‚¨ä¸ºASCIIç 
     str[0] = (addr/100) + 48;
     str[1] = (addr/10)%10 + 48;
     str[2] = addr%10 + 48;
-    write_block(blk+8*7, str, "");
+    memset(str_Y, 0, sizeof(str_Y));// èµ‹ç©ºå€¼
+    write_block(blk+8*7, str, str_Y);
+    return 0;
 }
+/* ä¸ºRçš„16å—æ•°æ®å—æ’åºï¼Œç¬¬ä¸€è½®æ’åºç»“æœå­˜åœ¨111.blk~127.blkä¸­ï¼Œç¬¬äºŒè½®æ’åºç»“æœå°†å­˜å…¥201.blk~216.blk*/
+int tpmms_R(Buffer *buf)
+{
+    unsigned char *blk; // ä¸€ä¸ªæŒ‡å‘ç£ç›˜å—çš„æŒ‡é’ˆ
 
+    /*åˆ†ä¸¤è½®è¯»å–ï¼Œç¬¬ä¸€è½®è¯»å–111.blk~114.blkå’Œ119.blk~122.blk*/
+    /* è¯»å–ç£ç›˜å—åˆ°bufferä¸­ */
+    for (int i = 111; i <= 114; i++)
+    {
+        if ((blk = readBlockFromDisk(i, buf)) == NULL)
+        {
+            perror("Reading Block Failed!\n");
+            return -1;
+        }
+    }
+    for (int i = 119; i <= 122; i++)
+    {
+        if ((blk = readBlockFromDisk(i, buf)) == NULL)
+        {
+            perror("Reading Block Failed!\n");
+            return -1;
+        }
+    }
+    blk = blk-(BLOCKSIZE+1)*7;// è®©blké‡æ–°æŒ‡å‘ç¬¬ä¸€ä¸ªæ•°æ®å—çš„å¼€å¤´
+    if (tpmms_one(91, buf, blk) != 0)
+    {
+        perror("Rç¬¬äºŒè½®ç¬¬ä¸€æ¬¡æ’åºå¤±è´¥ï¼");
+        return -1;
+    }
+    return 0;
+}

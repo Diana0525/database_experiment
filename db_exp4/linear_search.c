@@ -2,81 +2,81 @@
 
 int linear_search()
 {
-    Buffer buf;// ¶¨ÒåÒ»¸ö»º³åÇø£¬520×Ö½Ú£¬¿É´æ·Å8¿é´ÅÅÌ¿é
-    unsigned char *blk; // Ò»¸öÖ¸Ïò´ÅÅÌ¿éµÄÖ¸Õë
+    Buffer buf;// å®šä¹‰ä¸€ä¸ªç¼“å†²åŒºï¼Œ520å­—èŠ‚ï¼Œå¯å­˜æ”¾8å—ç£ç›˜å—
+    unsigned char *blk; // ä¸€ä¸ªæŒ‡å‘ç£ç›˜å—çš„æŒ‡é’ˆ
     unsigned char *blk_write;
     int i = 0,j = 0;
     int SC_num;
     char s[3];
     printf("#########################\n");
-    printf("»ùÓÚÏßĞÔËÑË÷µÄÑ¡ÔñËã·¨ S.C=");
+    printf("åŸºäºçº¿æ€§æœç´¢çš„é€‰æ‹©ç®—æ³• S.C=");
     do{
-        fflush(stdin);//Çå³ı»º³åÇø
+        fflush(stdin);//æ¸…é™¤ç¼“å†²åŒº
         s[0] = getchar();
         s[1] = getchar();
         SC_num = atoi(s);
         printf("%d\n", SC_num);
     }while(SC_num < 40 || SC_num > 80);
     printf("\n#########################\n");
-    /* ¶¨ÒåÒ»¸öbuffer */
+    /* å®šä¹‰ä¸€ä¸ªbuffer */
     if (!initBuffer(520, 64, &buf))
     {
         perror("Buffer Initialization Failed!\n");
         return -1;
     }
 
-    /* ÔÚ»º³åÇøÖĞÈ¡³öÒ»¸öĞÂµÄÊı¾İ¿é */
+    /* åœ¨ç¼“å†²åŒºä¸­å–å‡ºä¸€ä¸ªæ–°çš„æ•°æ®å— */
     blk_write = getNewBlockInBuffer(&buf);
 
-    /* ¶¨ÒåÏà¹Ø´æ´¢Êı¾İ¿éblkÖĞÊı¾İµÄ±äÁ¿ */
+    /* å®šä¹‰ç›¸å…³å­˜å‚¨æ•°æ®å—blkä¸­æ•°æ®çš„å˜é‡ */
     int X = -1;
     int Y = -1;
     int addr = 17;
-    int count = 0; // ¼ÇÂ¼Ğ´ÈëÊı¾İ¿éµÄ´ÎÊı
-    int addr_add = 1;// µØÖ·ÔöÁ¿,ÓÃÓÚĞ´ÈëÊı¾İ¿é×îºóÒ»ĞĞ
-    int count_sum = 0; // ¼ÇÂ¼Ò»¹²ÕÒµ½¶àÉÙ·ûºÏµÄÔª×é
+    int count = 0; // è®°å½•å†™å…¥æ•°æ®å—çš„æ¬¡æ•°
+    int addr_add = 1;// åœ°å€å¢é‡,ç”¨äºå†™å…¥æ•°æ®å—æœ€åä¸€è¡Œ
+    int count_sum = 0; // è®°å½•ä¸€å…±æ‰¾åˆ°å¤šå°‘ç¬¦åˆçš„å…ƒç»„
     char str[5];
     char str_X[5];
     char str_Y[5];
-    /* Ñ­»·ÔÚÓ²ÅÌÖĞ¶ÁÈ¡Êı¾İ¿é */
-    for (j = 0; j < 32; j++) // SÓĞ32¿é
+    /* å¾ªç¯åœ¨ç¡¬ç›˜ä¸­è¯»å–æ•°æ®å— */
+    for (j = 0; j < 32; j++) // Sæœ‰32å—
     {
-        /* ¶ÁÈ¡µÚi¸ö´ÅÅÌ¿éµÄÄÚÈİ */
+        /* è¯»å–ç¬¬iä¸ªç£ç›˜å—çš„å†…å®¹ */
         if ((blk = readBlockFromDisk(addr, &buf)) == NULL)
         {
             perror("Reading Block Failed!\n");
             return -1;
         }
-        printf("¶ÁÈëÊı¾İ¿é%d\n", addr);
-        for (i = 0; i < 7; i++)// Ò»¸öblk´æ´¢7¸öÔª×é¼ÓÒ»¸öµØÖ·
+        printf("è¯»å…¥æ•°æ®å—%d\n", addr);
+        for (i = 0; i < 7; i++)// ä¸€ä¸ªblkå­˜å‚¨7ä¸ªå…ƒç»„åŠ ä¸€ä¸ªåœ°å€
         {
             for (int k = 0; k < 4; k++)
             {
                 str_X[k] = *(blk + i*8 + k);
             }
-            X = atoi(str_X);// »ñÈ¡µÚi¸öÔª×éµÄµÚÒ»¸öÖµ
+            X = atoi(str_X);// è·å–ç¬¬iä¸ªå…ƒç»„çš„ç¬¬ä¸€ä¸ªå€¼
             for (int k = 0; k < 4; k++)
             {
                 str_Y[k] = *(blk + i*8 + 4 +k);
             }
-            Y = atoi(str_Y);// »ñÈ¡µÚ¶ş¸öÖµ
-            if (X == SC_num) // Èô·ûºÏselectÌõ¼ş
+            Y = atoi(str_Y);// è·å–ç¬¬äºŒä¸ªå€¼
+            if (X == SC_num) // è‹¥ç¬¦åˆselectæ¡ä»¶
             {
                 count_sum ++;
-                printf("ÕÒµ½Ôª×é(%d, %d)\n",X, Y);
+                printf("æ‰¾åˆ°å…ƒç»„(%d, %d)\n",X, Y);
                 write_block(blk_write+8*count, str_X, str_Y);
                 count ++;
-                if (count == 7) // ĞèÒª½«blk_writeĞ´Èë´ÅÅÌ
+                if (count == 7) // éœ€è¦å°†blk_writeå†™å…¥ç£ç›˜
                 {
-                    /* ½«ÏÂÒ»¸öµØÖ·Ğ´Èëblk_write×îºóÒ»¿é */
+                    /* å°†ä¸‹ä¸€ä¸ªåœ°å€å†™å…¥blk_writeæœ€åä¸€å— */
                     str_X[0] = '1';
                     str_X[1] = '0';
                     str_X[2] = '0'+addr_add;
                     addr_add++;
-                    memset(str_Y, 0, sizeof(str_Y));// ¸³¿ÕÖµ
+                    memset(str_Y, 0, sizeof(str_Y));// èµ‹ç©ºå€¼
                     write_block(blk_write+8*count, str_X, str_Y);
-                    count = 0;// ÖØÖÃÎª0
-                    /* ½«Ò»¸ö´ÅÅÌ¿éĞ´Èë´ÅÅÌ */
+                    count = 0;// é‡ç½®ä¸º0
+                    /* å°†ä¸€ä¸ªç£ç›˜å—å†™å…¥ç£ç›˜ */
                     if (writeBlockToDisk(blk_write, 100, &buf) != 0)
                     {
                         perror("Writing Block Failed!\n");
@@ -89,7 +89,7 @@ int linear_search()
                 }
             }
         }
-        for (int k = 0; k < 4; k++) // »ñÈ¡ÏÂÒ»¸öµØÖ·
+        for (int k = 0; k < 4; k++) // è·å–ä¸‹ä¸€ä¸ªåœ°å€
         {
             str[k] = *(blk + i*8 +k);
         }
@@ -102,19 +102,19 @@ int linear_search()
     str_X[1] = '0';
     str_X[2] = '0'+addr_add-1;
     final_addr = atoi(str_X);
-    /* ½«Î´ÌîÂúµÄÊı¾İ¿éÒ²Ğ´Èë´ÅÅÌ£¬ÏÂÒ»¸öµØÖ·²»ÔÙÖ¸¶¨ */
+    /* å°†æœªå¡«æ»¡çš„æ•°æ®å—ä¹Ÿå†™å…¥ç£ç›˜ï¼Œä¸‹ä¸€ä¸ªåœ°å€ä¸å†æŒ‡å®š */
     if (writeBlockToDisk(blk_write, final_addr, &buf) != 0)
     {
         perror("Writing Block Failed!\n");
         return -1;
     }
-    printf("Ò»¹²ÓĞ%d¸öÔª×é·ûºÏÒªÇó\n", count_sum);
+    printf("ä¸€å…±æœ‰%dä¸ªå…ƒç»„ç¬¦åˆè¦æ±‚\n", count_sum);
 
-    printf("IO´ÎÊıÎª %d\n", buf.numIO);// Êä³öIOµÄ´ÎÊı
+    printf("IOæ¬¡æ•°ä¸º %lu\n", buf.numIO);// è¾“å‡ºIOçš„æ¬¡æ•°
     printf("\n");
     return 0;
 }
-/* Ğ´ÈëÊı¾İ¿éµÄÃ¿Ò»ĞĞ8¸ö×Ö½Ú£¬ÔËĞĞÒ»´ÎĞ´Ò»ĞĞ£¬¼´8¸ö×Ö½Ú */
+/* å†™å…¥æ•°æ®å—çš„æ¯ä¸€è¡Œ8ä¸ªå­—èŠ‚ï¼Œè¿è¡Œä¸€æ¬¡å†™ä¸€è¡Œï¼Œå³8ä¸ªå­—èŠ‚ */
 void write_block(unsigned char *blk, char str_X[], char str_Y[])
 {
     int i;

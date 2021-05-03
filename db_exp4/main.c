@@ -3,14 +3,14 @@ int menu_select()
 {
     char s;
     int cn;
-    printf("1.»ùÓÚÏßĞÔËÑË÷µÄ¹ØÏµÑ¡Ôñ\n");
-    printf("2.Á½½×¶Î¶àÂ·¹é²¢ÅÅĞò\n");
-    printf("3.»ùÓÚË÷ÒıµÄ¹ØÏµÑ¡Ôñ\n");
-    printf("4.»ùÓÚÅÅĞòµÄÁ¬½Ó²Ù×÷\n");
-    printf("5.²¢¼¯ºÏ²Ù×÷\n");
-    printf("6.½»¼¯ºÏ²Ù×÷\n");
-    printf("7.²î¼¯ºÏ²Ù×÷\n");
-    printf("ÇëÊäÈëÄãµÄÑ¡Ôñ£º");
+    printf("1.åŸºäºçº¿æ€§æœç´¢çš„å…³ç³»é€‰æ‹©\n");
+    printf("2.ä¸¤é˜¶æ®µå¤šè·¯å½’å¹¶æ’åº\n");
+    printf("3.åŸºäºç´¢å¼•çš„å…³ç³»é€‰æ‹©\n");
+    printf("4.åŸºäºæ’åºçš„è¿æ¥æ“ä½œ\n");
+    printf("5.å¹¶é›†åˆæ“ä½œ\n");
+    printf("6.äº¤é›†åˆæ“ä½œ\n");
+    printf("7.å·®é›†åˆæ“ä½œ\n");
+    printf("è¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼š");
     do{
         s = getchar();
         cn = (int)s-48;
@@ -30,23 +30,23 @@ int read_choice()
                 cn=linear_search();
                 break;
             case 2:
-                printf("2.Á½½×¶Î¶àÂ·¹é²¢ÅÅĞò\n");
+                printf("2.ä¸¤é˜¶æ®µå¤šè·¯å½’å¹¶æ’åº\n");
                 cn = tpmms();
                 break;
             case 3:
-                printf("3.»ùÓÚË÷ÒıµÄ¹ØÏµÑ¡Ôñ\n");
+                printf("3.åŸºäºç´¢å¼•çš„å…³ç³»é€‰æ‹©\n");
                 break;
             case 4:
-                printf("4.»ùÓÚÅÅĞòµÄÁ¬½Ó²Ù×÷\n");
+                printf("4.åŸºäºæ’åºçš„è¿æ¥æ“ä½œ\n");
                 break;
             case 5:
-                printf("5.²¢¼¯ºÏ²Ù×÷\n");
+                printf("5.å¹¶é›†åˆæ“ä½œ\n");
                 break;
             case 6:
-                printf("6.½»¼¯ºÏ²Ù×÷\n");
+                printf("6.äº¤é›†åˆæ“ä½œ\n");
                 break;
             case 7:
-                printf("7.²î¼¯ºÏ²Ù×÷\n");
+                printf("7.å·®é›†åˆæ“ä½œ\n");
                 break;
             default:
                 break;
@@ -57,6 +57,6 @@ int read_choice()
 }
 int main()
 {
-    read_choice();//»ñÈ¡ÓÃ»§µÄÑ¡Ôñ
+    read_choice();//è·å–ç”¨æˆ·çš„é€‰æ‹©
     return 0;
 }
