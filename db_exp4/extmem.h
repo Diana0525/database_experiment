@@ -14,13 +14,9 @@
 typedef struct tagBuffer {
     unsigned long numIO; /* Number of IO's*/
     size_t bufSize; /* Buffer size*/
-    // unsigned long bufSize;
     size_t blkSize; /* Block size */
-    // unsigned long blkSize; 
     size_t numAllBlk; /* Number of blocks that can be kept in the buffer */
-    // unsigned long numAllBlk;
     size_t numFreeBlk; /* Number of available blocks in the buffer */
-    // unsigned long numFreeBlk;
     unsigned char *data; /* Starting address of the buffer */
 } Buffer;
 
