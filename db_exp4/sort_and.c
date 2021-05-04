@@ -1,5 +1,5 @@
 #include "sort_and.h"
-
+/* 求S和R的交集 */
 int sort_and()
 {
     Buffer buf;// 定义一个缓冲区，520字节，可存放8块磁盘块
@@ -56,6 +56,7 @@ int sort_and()
                 str_SD[k] = *(blk_S + j*8 +k +4);
             }
             SD = atoi(str_SD);
+            r = 201;
             while (r <= 216)
             {
                 /* 读取第i个磁盘块的内容 */
@@ -89,10 +90,10 @@ int sort_and()
                     {
                         // 发现SC=RA,SD=RB的元组
                         count_and ++;
-                        printf("(%s, %s)\n", str_SC, str_SD);
+                        if (RA == SC && RB != SD && RA == 43)
                         write_block(blk_write+8*count, str_SC, str_SD);
                         count++;
-                        printf("count = %d\n", count);
+                        
                         if (count == 7)
                         {
                             count = 0;
@@ -116,6 +117,7 @@ int sort_and()
                     break;
                 }
                 r ++;
+                
             }
         }
         freeBlockInBuffer(blk_S, &buf);

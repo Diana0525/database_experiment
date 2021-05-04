@@ -42,6 +42,7 @@ int read_choice()
                 break;
             case 5:
                 printf("5.并集合操作\n");
+                sort_or();
                 break;
             case 6:
                 printf("6.交集合操作\n");
