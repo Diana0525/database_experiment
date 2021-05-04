@@ -38,6 +38,7 @@ int read_choice()
                 break;
             case 4:
                 printf("4.基于排序的连接操作\n");
+                sort_merge_join();
                 break;
             case 5:
                 printf("5.并集合操作\n");

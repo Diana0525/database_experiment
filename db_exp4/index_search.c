@@ -9,7 +9,7 @@ int index_search()
     char s[3];
     /* 获取用户请求搜索的S.C值 */
     printf("#########################\n");
-    printf("基于线性搜索的选择算法 S.C=");
+    printf("基于索引的关系选择 S.C=");
     do{
         fflush(stdin);//清除缓冲区
         s[0] = getchar();

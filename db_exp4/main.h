@@ -5,5 +5,5 @@
 #include "linear_search.h"
 #include "tpmms.h"
 #include "index_search.h"
-
+#include "sort_merge_join.h"
 #endif // MAIN_H_INCLUDED
