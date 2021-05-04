@@ -1,7 +1,7 @@
 cc = gcc
 prom = db4
 deps = extmem.h
-obj = extmem.o main.o linear_search.o tpmms.o index_search.o sort_merge_join.o
+obj = extmem.o main.o linear_search.o tpmms.o index_search.o sort_merge_join.o sort_and.o
 
 $(prom): $(obj)
 	$(cc) -o $(prom) $(obj)

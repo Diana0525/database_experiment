@@ -45,6 +45,7 @@ int read_choice()
                 break;
             case 6:
                 printf("6.交集合操作\n");
+                sort_and();
                 break;
             case 7:
                 printf("7.差集合操作\n");
