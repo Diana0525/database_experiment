@@ -89,9 +89,10 @@ int sort_and()
                     {
                         // 发现SC=RA,SD=RB的元组
                         count_and ++;
-                        printf("(%d, %d)\n", SC, SD);
+                        printf("(%s, %s)\n", str_SC, str_SD);
                         write_block(blk_write+8*count, str_SC, str_SD);
                         count++;
+                        printf("count = %d\n", count);
                         if (count == 7)
                         {
                             count = 0;
