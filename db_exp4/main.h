@@ -4,5 +4,6 @@
 #include <stdlib.h>
 #include "linear_search.h"
 #include "tpmms.h"
+#include "index_search.h"
 
 #endif // MAIN_H_INCLUDED

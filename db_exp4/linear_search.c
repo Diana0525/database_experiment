@@ -4,10 +4,11 @@ int linear_search()
 {
     Buffer buf;// 定义一个缓冲区，520字节，可存放8块磁盘块
     unsigned char *blk; // 一个指向磁盘块的指针
-    unsigned char *blk_write;
+    unsigned char *blk_write;// 指向新建的用于写入的磁盘块
     int i = 0,j = 0;
     int SC_num;
     char s[3];
+    /* 获取用户请求搜索的S.C值 */
     printf("#########################\n");
     printf("基于线性搜索的选择算法 S.C=");
     do{

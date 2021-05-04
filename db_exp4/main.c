@@ -20,21 +20,21 @@ int menu_select()
 
 int read_choice()
 {
-    int cn = 0;
     char s;
     for(;;)
     {
         switch(menu_select())
         {
             case 1:
-                cn=linear_search();
+                linear_search();
                 break;
             case 2:
                 printf("2.两阶段多路归并排序\n");
-                cn = tpmms();
+                tpmms();
                 break;
             case 3:
                 printf("3.基于索引的关系选择\n");
+                index_search();
                 break;
             case 4:
                 printf("4.基于排序的连接操作\n");
