@@ -147,7 +147,6 @@ int Ttwo_myWritetoDisk(unsigned char *blk, int beginFileName, Buffer *buf)
         perror("Writing Block Failed!\n");
         return -1;
     }
-
     return 0;
 }
 /* 为每个块的最后一行写入下一块的地址 */
@@ -164,7 +163,7 @@ int writeAddrinBlk(unsigned char *blk, int addr)
     write_block(blk+8*7, str, str_Y);
     return 0;
 }
-/* 为R的16块数据块排序，第一轮排序结果存在111.blk~127.blk中，第二轮排序结果将存入201.blk~216.blk*/
+/* 为R的16块数据块排序，第一轮排序结果存在111.blk~126.blk中，第二轮排序结果将存入201.blk~216.blk*/
 int tpmms_R(Buffer *buf)
 {
     unsigned char *blk; // 一个指向磁盘块的指针

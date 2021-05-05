@@ -179,7 +179,7 @@ int make_index()
             perror("Reading Block Failed!\n");
             return -1;
         }
-        printf("读入数据块%d\n", 221+i);
+        // printf("读入数据块%d\n", 221+i);
         /* 默认读取第一个元组的X值，将(X, 221+i)写入新的块blk_write */
         for (int j = 0; j < 4; j++)
         {

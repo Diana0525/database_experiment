@@ -16,7 +16,6 @@ int linear_search()
         s[0] = getchar();
         s[1] = getchar();
         SC_num = atoi(s);
-        printf("%d\n", SC_num);
     }while(SC_num < 40 || SC_num > 80);
     printf("\n#########################\n");
     /* 定义一个buffer */
