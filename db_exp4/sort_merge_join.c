@@ -52,6 +52,7 @@ int sort_merge_join()
                 str_SD[k] = *(blk_S + j*8 +k +4);
             }
             SD = atoi(str_SD);
+            r = 201;
             while (r <= 216)
             {
                 /* 读取第i个磁盘块的内容 */

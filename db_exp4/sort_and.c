@@ -98,13 +98,13 @@ int sort_and()
                         {
                             count = 0;
                             count_index ++;
-                            writeAddrinBlk(blk_write, 500+count_index);
-                            if (writeBlockToDisk(blk_write, 499+count_index, &buf) != 0)
+                            writeAddrinBlk(blk_write, 501+count_index);
+                            if (writeBlockToDisk(blk_write, 500+count_index, &buf) != 0)
                             {      
                                 perror("Writing Block Failed!\n");
                                 return -1;
                             }
-                            printf("结果写入磁盘：%d\n", 499+count_index);
+                            printf("结果写入磁盘：%d\n", 500+count_index);
                             blk_write = getNewBlockInBuffer(&buf);
                             memset(blk_write, 0, buf.blkSize*sizeof(unsigned char));
                         }
@@ -124,13 +124,13 @@ int sort_and()
     }
     count_index ++;
     // 将内存剩下的数值写入磁盘块
-    writeAddrinBlk(blk_write, 500+count_index);
-    if (writeBlockToDisk(blk_write, 499+count_index, &buf) != 0)
+    writeAddrinBlk(blk_write, 501+count_index);
+    if (writeBlockToDisk(blk_write, 500+count_index, &buf) != 0)
     {      
         perror("Writing Block Failed!\n");
         return -1;
     }
-    printf("结果写入磁盘：%d\n", 499+count_index);
+    printf("结果写入磁盘：%d\n", 500+count_index);
     printf("\n");
     printf("S和R的交集一共有%d个元组\n", count_and);
     return 0;

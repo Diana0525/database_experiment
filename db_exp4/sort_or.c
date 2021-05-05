@@ -65,6 +65,7 @@ int sort_or()
                 str_SD[k] = *(blk_S + j*8 +k +4);
             }
             SD = atoi(str_SD);
+            r = 201;
             while (r <= 216)
             {
                 /* 读取第r个磁盘块的内容 */
@@ -120,7 +121,7 @@ int sort_or()
                     perror("Writing Block Failed!\n");
                     return -1;
                 }
-                printf("结果写入磁盘：%d\n", 501+count_index);
+                printf("结果写入磁盘：%d\n", 502+count_index);
                 blk_write = getNewBlockInBuffer(&buf);
                 memset(blk_write, 0, buf.blkSize*sizeof(unsigned char));
             }
@@ -175,7 +176,7 @@ int sort_or()
                         perror("Writing Block Failed!\n");
                         return -1;
                     }
-                    printf("结果写入磁盘：%d\n", 501+count_index);
+                    printf("结果写入磁盘：%d\n", 502+count_index);
                     blk_write = getNewBlockInBuffer(&buf);
                     memset(blk_write, 0, buf.blkSize*sizeof(unsigned char));
                 }
@@ -194,8 +195,8 @@ int sort_or()
             return -1;
         }
     }
-    /* 目前已有的并集存在于502.blk～532.blk中 */
-    r = 502;
+    /* 目前已有的并集存在于503.blk～533.blk中 */
+    r = 221;
     /* R与已经存在的并集再次进行上述循环的操作 */
     for (int i = 201; i <= 216; i++)
     {
@@ -217,7 +218,8 @@ int sort_or()
                 str_RB[k] = *(blk_R + j*8 +k +4);
             }
             RB = atoi(str_RB);
-            while (r <= 532)
+            r = 221;
+            while (r <= 252)
             {
                 /* 读取第i个磁盘块的内容 */
                 if ((blk_S = readBlockFromDisk(r, &buf)) == NULL)
@@ -245,7 +247,6 @@ int sort_or()
                     else if (RA == SC && RB == SD)
                     {
                         flag = 0;
-                        printf("(%d ,%d )\n", RA, RB);
                         break;
                     }
                     else
@@ -277,7 +278,7 @@ int sort_or()
                     perror("Writing Block Failed!\n");
                     return -1;
                 }
-                printf("结果写入磁盘：%d\n", 501+count_index);
+                printf("结果写入磁盘：%d\n", 502+count_index);
                 blk_write = getNewBlockInBuffer(&buf);
                 memset(blk_write, 0, buf.blkSize*sizeof(unsigned char));
             }
