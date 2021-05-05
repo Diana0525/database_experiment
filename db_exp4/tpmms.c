@@ -159,6 +159,8 @@ int writeAddrinBlk(unsigned char *blk, int addr)
     str[0] = (addr/100) + 48;
     str[1] = (addr/10)%10 + 48;
     str[2] = addr%10 + 48;
+    str[3] = '\0';
+    str[4] = '\0';
     memset(str_Y, 0, sizeof(str_Y));// 赋空值
     write_block(blk+8*7, str, str_Y);
     return 0;
@@ -198,6 +200,7 @@ int tpmms_R(Buffer *buf)
                 return -1;
             }
             Ttwo_myWritetoDisk(blk, flag, buf);
+            
             /* 替换掉已经被写入磁盘的第一块blk,将写入115+0/+1/+2/+3 共4个值*/
             blk = myreadBlockFromDisk(115+flag/2, buf, blk);
         }
@@ -257,6 +260,7 @@ int tpmms_S(Buffer *buf)
             Ttwo_myWritetoDisk(blk, flag+20, buf);
             /* 替换掉已经被写入磁盘的第一块blk，将会写入129+0/+1/+2/+3/+4/+5 */
             blk = myreadBlockFromDisk(129+flag/4, buf, blk);
+
         }
         else if (flag % 4 == 1)
         {
@@ -288,8 +292,8 @@ int tpmms_S(Buffer *buf)
                 return -1;
             }
             Ttwo_myWritetoDisk(blk, flag+20, buf);
-            /* 替换掉已经被写入磁盘的第一块blk，将会写入152+0/+1/+2/+3/+4/+5 */
-            blk = myreadBlockFromDisk(152+flag/4, buf, blk);
+            /* 替换掉已经被写入磁盘的第一块blk，将会写入153+0/+1/+2/+3/+4/+5 */
+            blk = myreadBlockFromDisk(153+flag/4, buf, blk);
         }
         flag ++;
     }
