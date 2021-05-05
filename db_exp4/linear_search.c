@@ -82,7 +82,6 @@ int linear_search()
                         perror("Writing Block Failed!\n");
                         return -1;
                     }
-                    freeBlockInBuffer(blk_write, &buf);
                     blk_write = getNewBlockInBuffer(&buf);
                     memset(blk_write, 0, buf.blkSize*sizeof(unsigned char));
 
